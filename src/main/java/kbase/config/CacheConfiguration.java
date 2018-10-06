@@ -38,6 +38,9 @@ public class CacheConfiguration {
             cm.createCache(kbase.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(kbase.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(kbase.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(kbase.domain.Glossario.class.getName(), jcacheConfiguration);
+            cm.createCache(kbase.domain.Rotulo.class.getName(), jcacheConfiguration);
+            cm.createCache(kbase.domain.Usuario.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

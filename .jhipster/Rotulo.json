@@ -1,0 +1,26 @@
+{
+    "name": "Rotulo",
+    "fields": [
+        {
+            "fieldName": "rotulo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 2,
+            "fieldValidateRulesMaxlength": 35
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181006023608",
+    "entityTableName": "rotulo",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
