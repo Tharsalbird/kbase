@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
-import { NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager } from 'ng-jhipster';
+import {NgbActiveModal, NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
+import {JhiEventManager} from 'ng-jhipster';
 
-import { IRotulo } from 'app/shared/model/rotulo.model';
-import { RotuloService } from './rotulo.service';
+import {IRotulo} from 'app/shared/model/rotulo.model';
+import {RotuloService} from './rotulo.service';
 
 @Component({
     selector: 'jhi-rotulo-delete-dialog',
@@ -14,7 +14,8 @@ import { RotuloService } from './rotulo.service';
 export class RotuloDeleteDialogComponent {
     rotulo: IRotulo;
 
-    constructor(private rotuloService: RotuloService, public activeModal: NgbActiveModal, private eventManager: JhiEventManager) {}
+    constructor(private rotuloService: RotuloService, public activeModal: NgbActiveModal, private eventManager: JhiEventManager) {
+    }
 
     clear() {
         this.activeModal.dismiss('cancel');
@@ -38,20 +39,21 @@ export class RotuloDeleteDialogComponent {
 export class RotuloDeletePopupComponent implements OnInit, OnDestroy {
     private ngbModalRef: NgbModalRef;
 
-    constructor(private activatedRoute: ActivatedRoute, private router: Router, private modalService: NgbModal) {}
+    constructor(private activatedRoute: ActivatedRoute, private router: Router, private modalService: NgbModal) {
+    }
 
     ngOnInit() {
-        this.activatedRoute.data.subscribe(({ rotulo }) => {
+        this.activatedRoute.data.subscribe(({rotulo}) => {
             setTimeout(() => {
-                this.ngbModalRef = this.modalService.open(RotuloDeleteDialogComponent as Component, { size: 'lg', backdrop: 'static' });
+                this.ngbModalRef = this.modalService.open(RotuloDeleteDialogComponent as Component, {size: 'lg', backdrop: 'static'});
                 this.ngbModalRef.componentInstance.rotulo = rotulo;
                 this.ngbModalRef.result.then(
                     result => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate([{outlets: {popup: null}}], {replaceUrl: true, queryParamsHandling: 'merge'});
                         this.ngbModalRef = null;
                     },
                     reason => {
-                        this.router.navigate([{ outlets: { popup: null } }], { replaceUrl: true, queryParamsHandling: 'merge' });
+                        this.router.navigate([{outlets: {popup: null}}], {replaceUrl: true, queryParamsHandling: 'merge'});
                         this.ngbModalRef = null;
                     }
                 );

@@ -1,13 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Subscription } from 'rxjs';
-import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {HttpErrorResponse, HttpHeaders, HttpResponse} from '@angular/common/http';
+import {Subscription} from 'rxjs';
+import {JhiAlertService, JhiEventManager, JhiParseLinks} from 'ng-jhipster';
 
-import { IRotulo } from 'app/shared/model/rotulo.model';
-import { Principal } from 'app/core';
+import {IRotulo} from 'app/shared/model/rotulo.model';
+import {Principal} from 'app/core';
 
-import { ITEMS_PER_PAGE } from 'app/shared';
-import { RotuloService } from './rotulo.service';
+import {ITEMS_PER_PAGE} from 'app/shared';
+import {RotuloService} from './rotulo.service';
 
 @Component({
     selector: 'jhi-rotulo',

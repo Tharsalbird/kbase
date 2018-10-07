@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
-import { IRotulo } from 'app/shared/model/rotulo.model';
+import {IRotulo} from 'app/shared/model/rotulo.model';
 
 @Component({
     selector: 'jhi-rotulo-detail',
@@ -10,10 +10,11 @@ import { IRotulo } from 'app/shared/model/rotulo.model';
 export class RotuloDetailComponent implements OnInit {
     rotulo: IRotulo;
 
-    constructor(private activatedRoute: ActivatedRoute) {}
+    constructor(private activatedRoute: ActivatedRoute) {
+    }
 
     ngOnInit() {
-        this.activatedRoute.data.subscribe(({ rotulo }) => {
+        this.activatedRoute.data.subscribe(({rotulo}) => {
             this.rotulo = rotulo;
         });
     }

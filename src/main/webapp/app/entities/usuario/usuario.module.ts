@@ -1,16 +1,8 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
 
-import { KbaseSharedModule } from 'app/shared';
-import {
-    UsuarioComponent,
-    UsuarioDetailComponent,
-    UsuarioUpdateComponent,
-    UsuarioDeletePopupComponent,
-    UsuarioDeleteDialogComponent,
-    usuarioRoute,
-    usuarioPopupRoute
-} from './';
+import {KbaseSharedModule} from 'app/shared';
+import {UsuarioComponent, UsuarioDeleteDialogComponent, UsuarioDeletePopupComponent, UsuarioDetailComponent, usuarioPopupRoute, usuarioRoute, UsuarioUpdateComponent} from './';
 
 const ENTITY_STATES = [...usuarioRoute, ...usuarioPopupRoute];
 
@@ -26,4 +18,5 @@ const ENTITY_STATES = [...usuarioRoute, ...usuarioPopupRoute];
     entryComponents: [UsuarioComponent, UsuarioUpdateComponent, UsuarioDeleteDialogComponent, UsuarioDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class KbaseUsuarioModule {}
+export class KbaseUsuarioModule {
+}

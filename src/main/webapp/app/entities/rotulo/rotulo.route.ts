@@ -1,20 +1,20 @@
-import { Injectable } from '@angular/core';
-import { HttpResponse } from '@angular/common/http';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
-import { UserRouteAccessService } from 'app/core';
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Rotulo } from 'app/shared/model/rotulo.model';
-import { RotuloService } from './rotulo.service';
-import { RotuloComponent } from './rotulo.component';
-import { RotuloDetailComponent } from './rotulo-detail.component';
-import { RotuloUpdateComponent } from './rotulo-update.component';
-import { RotuloDeletePopupComponent } from './rotulo-delete-dialog.component';
-import { IRotulo } from 'app/shared/model/rotulo.model';
+import {Injectable} from '@angular/core';
+import {HttpResponse} from '@angular/common/http';
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, Routes} from '@angular/router';
+import {UserRouteAccessService} from 'app/core';
+import {of} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {IRotulo, Rotulo} from 'app/shared/model/rotulo.model';
+import {RotuloService} from './rotulo.service';
+import {RotuloComponent} from './rotulo.component';
+import {RotuloDetailComponent} from './rotulo-detail.component';
+import {RotuloUpdateComponent} from './rotulo-update.component';
+import {RotuloDeletePopupComponent} from './rotulo-delete-dialog.component';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class RotuloResolve implements Resolve<IRotulo> {
-    constructor(private service: RotuloService) {}
+    constructor(private service: RotuloService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const id = route.params['id'] ? route.params['id'] : null;

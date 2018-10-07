@@ -1,13 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Subscription } from 'rxjs';
-import { JhiEventManager, JhiParseLinks, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {HttpErrorResponse, HttpHeaders, HttpResponse} from '@angular/common/http';
+import {Subscription} from 'rxjs';
+import {JhiAlertService, JhiDataUtils, JhiEventManager, JhiParseLinks} from 'ng-jhipster';
 
-import { IGlossario } from 'app/shared/model/glossario.model';
-import { Principal } from 'app/core';
+import {IGlossario} from 'app/shared/model/glossario.model';
+import {Principal} from 'app/core';
 
-import { ITEMS_PER_PAGE } from 'app/shared';
-import { GlossarioService } from './glossario.service';
+import {ITEMS_PER_PAGE} from 'app/shared';
+import {GlossarioService} from './glossario.service';
 
 @Component({
     selector: 'jhi-glossario',

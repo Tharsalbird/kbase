@@ -12,5 +12,6 @@ export interface IUsuario {
 }
 
 export class Usuario implements IUsuario {
-    constructor(public id?: number, public nome?: string, public email?: string, public login?: string, public tipo?: TipoUsuario) {}
+    constructor(public id?: number, public nome?: string, public email?: string, public login?: string, public tipo?: TipoUsuario) {
+    }
 }

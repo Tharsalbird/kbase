@@ -1,29 +1,29 @@
 import './vendor.ts';
 
-import { NgModule, Injector } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Ng2Webstorage, LocalStorageService, SessionStorageService } from 'ngx-webstorage';
-import { JhiEventManager } from 'ng-jhipster';
+import {Injector, NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {LocalStorageService, Ng2Webstorage, SessionStorageService} from 'ngx-webstorage';
+import {JhiEventManager} from 'ng-jhipster';
 
-import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
-import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
-import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
-import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
-import { KbaseSharedModule } from 'app/shared';
-import { KbaseCoreModule } from 'app/core';
-import { KbaseAppRoutingModule } from './app-routing.module';
-import { KbaseHomeModule } from './home/home.module';
-import { KbaseAccountModule } from './account/account.module';
-import { KbaseEntityModule } from './entities/entity.module';
+import {AuthInterceptor} from './blocks/interceptor/auth.interceptor';
+import {AuthExpiredInterceptor} from './blocks/interceptor/auth-expired.interceptor';
+import {ErrorHandlerInterceptor} from './blocks/interceptor/errorhandler.interceptor';
+import {NotificationInterceptor} from './blocks/interceptor/notification.interceptor';
+import {KbaseSharedModule} from 'app/shared';
+import {KbaseCoreModule} from 'app/core';
+import {KbaseAppRoutingModule} from './app-routing.module';
+import {KbaseHomeModule} from './home/home.module';
+import {KbaseAccountModule} from './account/account.module';
+import {KbaseEntityModule} from './entities/entity.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
+import {ErrorComponent, FooterComponent, JhiMainComponent, NavbarComponent, PageRibbonComponent} from './layouts';
 
 @NgModule({
     imports: [
         BrowserModule,
         KbaseAppRoutingModule,
-        Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
+        Ng2Webstorage.forRoot({prefix: 'jhi', separator: '-'}),
         KbaseSharedModule,
         KbaseCoreModule,
         KbaseHomeModule,
@@ -60,4 +60,5 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
     ],
     bootstrap: [JhiMainComponent]
 })
-export class KbaseAppModule {}
+export class KbaseAppModule {
+}

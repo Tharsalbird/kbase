@@ -5,5 +5,6 @@ export interface IGlossario {
 }
 
 export class Glossario implements IGlossario {
-    constructor(public id?: number, public titulo?: string, public descricao?: any) {}
+    constructor(public id?: number, public titulo?: string, public descricao?: any) {
+    }
 }

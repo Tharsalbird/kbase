@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 
-import { VERSION } from 'app/app.constants';
-import { Principal, LoginModalService, LoginService } from 'app/core';
-import { ProfileService } from '../profiles/profile.service';
+import {VERSION} from 'app/app.constants';
+import {LoginModalService, LoginService, Principal} from 'app/core';
+import {ProfileService} from '../profiles/profile.service';
 
 @Component({
     selector: 'jhi-navbar',
@@ -14,7 +14,6 @@ import { ProfileService } from '../profiles/profile.service';
 export class NavbarComponent implements OnInit {
     inProduction: boolean;
     isNavbarCollapsed: boolean;
-    languages: any[];
     swaggerEnabled: boolean;
     modalRef: NgbModalRef;
     version: string;
@@ -59,7 +58,4 @@ export class NavbarComponent implements OnInit {
         this.isNavbarCollapsed = !this.isNavbarCollapsed;
     }
 
-    getImageUrl() {
-        return this.isAuthenticated() ? this.principal.getImageUrl() : null;
-    }
 }

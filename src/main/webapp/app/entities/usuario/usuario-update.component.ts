@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
-import { IUsuario } from 'app/shared/model/usuario.model';
-import { UsuarioService } from './usuario.service';
+import {IUsuario} from 'app/shared/model/usuario.model';
+import {UsuarioService} from './usuario.service';
 
 @Component({
     selector: 'jhi-usuario-update',
@@ -14,11 +14,12 @@ export class UsuarioUpdateComponent implements OnInit {
     private _usuario: IUsuario;
     isSaving: boolean;
 
-    constructor(private usuarioService: UsuarioService, private activatedRoute: ActivatedRoute) {}
+    constructor(private usuarioService: UsuarioService, private activatedRoute: ActivatedRoute) {
+    }
 
     ngOnInit() {
         this.isSaving = false;
-        this.activatedRoute.data.subscribe(({ usuario }) => {
+        this.activatedRoute.data.subscribe(({usuario}) => {
             this.usuario = usuario;
         });
     }
@@ -48,6 +49,7 @@ export class UsuarioUpdateComponent implements OnInit {
     private onSaveError() {
         this.isSaving = false;
     }
+
     get usuario() {
         return this._usuario;
     }

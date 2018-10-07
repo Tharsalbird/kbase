@@ -1,9 +1,10 @@
 <div>
     <h2 id="page-heading">
         <span>Rotulos</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-rotulo" [routerLink]="['/rotulo/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-rotulo"
+                [routerLink]="['/rotulo/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span >
+            <span>
             Create new Rotulo
             </span>
         </button>
@@ -14,12 +15,17 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="rotulo"><span>Rotulo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th></th>
+                <th jhiSortBy="id"><span>ID</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="rotulo"><span>Rotulo</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th></th>
             </tr>
             </thead>
-            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']"
+                   [infiniteScrollDistance]="0">
             <tr *ngFor="let rotulo of rotulos ;trackBy: trackId">
                 <td><a [routerLink]="['/rotulo', rotulo.id, 'view' ]">{{rotulo.id}}</a></td>
                 <td>{{rotulo.rotulo}}</td>

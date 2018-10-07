@@ -1,21 +1,21 @@
-import { Injectable } from '@angular/core';
-import { HttpResponse } from '@angular/common/http';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
-import { JhiPaginationUtil, JhiResolvePagingParams } from 'ng-jhipster';
-import { UserRouteAccessService } from 'app/core';
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Usuario } from 'app/shared/model/usuario.model';
-import { UsuarioService } from './usuario.service';
-import { UsuarioComponent } from './usuario.component';
-import { UsuarioDetailComponent } from './usuario-detail.component';
-import { UsuarioUpdateComponent } from './usuario-update.component';
-import { UsuarioDeletePopupComponent } from './usuario-delete-dialog.component';
-import { IUsuario } from 'app/shared/model/usuario.model';
+import {Injectable} from '@angular/core';
+import {HttpResponse} from '@angular/common/http';
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, Routes} from '@angular/router';
+import {JhiResolvePagingParams} from 'ng-jhipster';
+import {UserRouteAccessService} from 'app/core';
+import {of} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {IUsuario, Usuario} from 'app/shared/model/usuario.model';
+import {UsuarioService} from './usuario.service';
+import {UsuarioComponent} from './usuario.component';
+import {UsuarioDetailComponent} from './usuario-detail.component';
+import {UsuarioUpdateComponent} from './usuario-update.component';
+import {UsuarioDeletePopupComponent} from './usuario-delete-dialog.component';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class UsuarioResolve implements Resolve<IUsuario> {
-    constructor(private service: UsuarioService) {}
+    constructor(private service: UsuarioService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const id = route.params['id'] ? route.params['id'] : null;

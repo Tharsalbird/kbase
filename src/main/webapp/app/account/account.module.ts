@@ -1,17 +1,17 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
 
-import { KbaseSharedModule } from 'app/shared';
+import {KbaseSharedModule} from 'app/shared';
 
 import {
-    PasswordStrengthBarComponent,
-    RegisterComponent,
+    accountState,
     ActivateComponent,
     PasswordComponent,
-    PasswordResetInitComponent,
     PasswordResetFinishComponent,
-    SettingsComponent,
-    accountState
+    PasswordResetInitComponent,
+    PasswordStrengthBarComponent,
+    RegisterComponent,
+    SettingsComponent
 } from './';
 
 @NgModule({
@@ -27,4 +27,5 @@ import {
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class KbaseAccountModule {}
+export class KbaseAccountModule {
+}

@@ -1,47 +1,45 @@
 /* after changing this file run 'yarn run webpack:build' */
 /* tslint:disable */
 import '../content/scss/vendor.scss';
-
-// Imports all fontawesome core and solid icons
-
-import { library } from '@fortawesome/fontawesome-svg-core';
+import {library} from '@fortawesome/fontawesome-svg-core';
 import {
-    faUser,
-    faSort,
-    faSync,
-    faEye,
-    faBan,
-    faTimes,
     faArrowLeft,
-    faSave,
-    faPlus,
-    faPencilAlt,
+    faAsterisk,
+    faBan,
     faBars,
-    faThList,
-    faUserPlus,
-    faRoad,
-    faTachometerAlt,
-    faHeart,
-    faList,
     faBell,
     faBook,
-    faHdd,
-    faFlag,
-    faWrench,
+    faCalendarAlt,
+    faClipboardList,
     faClock,
     faCloud,
-    faSignOutAlt,
-    faSignInAlt,
-    faCalendarAlt,
-    faSearch,
-    faTrashAlt,
-    faAsterisk,
-    faTasks,
+    faEye,
+    faFlag,
+    faHdd,
+    faHeart,
     faHome,
-    faClipboardList,
-    faTag
-
+    faList,
+    faPencilAlt,
+    faPlus,
+    faRoad,
+    faSave,
+    faSearch,
+    faSignInAlt,
+    faSignOutAlt,
+    faSort,
+    faSync,
+    faTachometerAlt,
+    faTag,
+    faTasks,
+    faThList,
+    faTimes,
+    faTrashAlt,
+    faUser,
+    faUserPlus,
+    faWrench
 } from '@fortawesome/free-solid-svg-icons';
+
+// Imports all fontawesome core and solid icons
 
 // Adds the SVG icon to the library so you can use it in your page
 library.add(faUser);
@@ -76,7 +74,7 @@ library.add(faCalendarAlt);
 library.add(faSearch);
 library.add(faTrashAlt);
 library.add(faAsterisk);
-library.add(faClipboardList)
+library.add(faClipboardList);
 library.add(faTag
 
 // jhipster-needle-add-element-to-vendor - JHipster will add new menu items here

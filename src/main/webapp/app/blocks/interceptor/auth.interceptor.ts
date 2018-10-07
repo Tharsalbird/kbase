@@ -1,11 +1,12 @@
-import { Observable } from 'rxjs';
-import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 
-import { SERVER_API_URL } from 'app/app.constants';
+import {SERVER_API_URL} from 'app/app.constants';
 
 export class AuthInterceptor implements HttpInterceptor {
-    constructor(private localStorage: LocalStorageService, private sessionStorage: SessionStorageService) {}
+    constructor(private localStorage: LocalStorageService, private sessionStorage: SessionStorageService) {
+    }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (!request || !request.url || (/^http/.test(request.url) && !(SERVER_API_URL && request.url.startsWith(SERVER_API_URL)))) {

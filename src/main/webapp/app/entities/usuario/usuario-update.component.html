@@ -7,85 +7,86 @@
                 <div class="form-group" [hidden]="!usuario.id">
                     <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="usuario.id" readonly />
+                           [(ngModel)]="usuario.id" readonly/>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_nome">Nome</label>
                     <input type="text" class="form-control" name="nome" id="field_nome"
-                        [(ngModel)]="usuario.nome" required minlength="3" maxlength="100"/>
+                           [(ngModel)]="usuario.nome" required minlength="3" maxlength="100"/>
                     <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.nome?.errors?.required">
-                        This field is required.
+                               [hidden]="!editForm.controls.nome?.errors?.required">
+                            This field is required.
                         </small>
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.nome?.errors?.minlength">
-                        This field is required to be at least 3 characters.
+                               [hidden]="!editForm.controls.nome?.errors?.minlength">
+                            This field is required to be at least 3 characters.
                         </small>
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.nome?.errors?.maxlength">
-                        This field cannot be longer than 100 characters.
+                               [hidden]="!editForm.controls.nome?.errors?.maxlength">
+                            This field cannot be longer than 100 characters.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_email">Email</label>
                     <input type="text" class="form-control" name="email" id="field_email"
-                        [(ngModel)]="usuario.email" required minlength="3" maxlength="100"/>
+                           [(ngModel)]="usuario.email" required minlength="3" maxlength="100"/>
                     <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.email?.errors?.required">
-                        This field is required.
+                               [hidden]="!editForm.controls.email?.errors?.required">
+                            This field is required.
                         </small>
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.email?.errors?.minlength">
-                        This field is required to be at least 3 characters.
+                               [hidden]="!editForm.controls.email?.errors?.minlength">
+                            This field is required to be at least 3 characters.
                         </small>
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.email?.errors?.maxlength">
-                        This field cannot be longer than 100 characters.
+                               [hidden]="!editForm.controls.email?.errors?.maxlength">
+                            This field cannot be longer than 100 characters.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_login">Login</label>
                     <input type="text" class="form-control" name="login" id="field_login"
-                        [(ngModel)]="usuario.login" required minlength="3" maxlength="100"/>
+                           [(ngModel)]="usuario.login" required minlength="3" maxlength="100"/>
                     <div [hidden]="!(editForm.controls.login?.dirty && editForm.controls.login?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.login?.errors?.required">
-                        This field is required.
+                               [hidden]="!editForm.controls.login?.errors?.required">
+                            This field is required.
                         </small>
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.login?.errors?.minlength">
-                        This field is required to be at least 3 characters.
+                               [hidden]="!editForm.controls.login?.errors?.minlength">
+                            This field is required to be at least 3 characters.
                         </small>
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.login?.errors?.maxlength">
-                        This field cannot be longer than 100 characters.
+                               [hidden]="!editForm.controls.login?.errors?.maxlength">
+                            This field cannot be longer than 100 characters.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_tipo">Tipo</label>
-                    <select class="form-control" name="tipo" [(ngModel)]="usuario.tipo" id="field_tipo"  required>
+                    <select class="form-control" name="tipo" [(ngModel)]="usuario.tipo" id="field_tipo" required>
                         <option value="ANALISTA">ANALISTA</option>
                         <option value="GESTOR">GESTOR</option>
                     </select>
                     <div [hidden]="!(editForm.controls.tipo?.dirty && editForm.controls.tipo?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.tipo?.errors?.required">
-                        This field is required.
+                               [hidden]="!editForm.controls.tipo?.errors?.required">
+                            This field is required.
                         </small>
                     </div>
                 </div>
 
             </div>
             <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
                 </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
+                        class="btn btn-primary">
                     <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
                 </button>
             </div>

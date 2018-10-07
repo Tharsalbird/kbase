@@ -1,23 +1,23 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { KbaseSharedModule } from 'app/shared';
-/* jhipster-needle-add-admin-module-import - JHipster will add admin modules imports here */
-
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {KbaseSharedModule} from 'app/shared';
 import {
     adminState,
     AuditsComponent,
-    UserMgmtComponent,
-    UserMgmtDetailComponent,
-    UserMgmtUpdateComponent,
-    UserMgmtDeleteDialogComponent,
-    LogsComponent,
-    JhiMetricsMonitoringModalComponent,
-    JhiMetricsMonitoringComponent,
-    JhiHealthModalComponent,
-    JhiHealthCheckComponent,
     JhiConfigurationComponent,
-    JhiDocsComponent
+    JhiDocsComponent,
+    JhiHealthCheckComponent,
+    JhiHealthModalComponent,
+    JhiMetricsMonitoringComponent,
+    JhiMetricsMonitoringModalComponent,
+    LogsComponent,
+    UserMgmtComponent,
+    UserMgmtDeleteDialogComponent,
+    UserMgmtDetailComponent,
+    UserMgmtUpdateComponent
 } from './';
+
+/* jhipster-needle-add-admin-module-import - JHipster will add admin modules imports here */
 
 @NgModule({
     imports: [
@@ -42,4 +42,5 @@ import {
     entryComponents: [UserMgmtDeleteDialogComponent, JhiHealthModalComponent, JhiMetricsMonitoringModalComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class KbaseAdminModule {}
+export class KbaseAdminModule {
+}

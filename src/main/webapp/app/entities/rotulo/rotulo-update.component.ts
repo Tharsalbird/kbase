@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
-import { IRotulo } from 'app/shared/model/rotulo.model';
-import { RotuloService } from './rotulo.service';
+import {IRotulo} from 'app/shared/model/rotulo.model';
+import {RotuloService} from './rotulo.service';
 
 @Component({
     selector: 'jhi-rotulo-update',
@@ -14,11 +14,12 @@ export class RotuloUpdateComponent implements OnInit {
     private _rotulo: IRotulo;
     isSaving: boolean;
 
-    constructor(private rotuloService: RotuloService, private activatedRoute: ActivatedRoute) {}
+    constructor(private rotuloService: RotuloService, private activatedRoute: ActivatedRoute) {
+    }
 
     ngOnInit() {
         this.isSaving = false;
-        this.activatedRoute.data.subscribe(({ rotulo }) => {
+        this.activatedRoute.data.subscribe(({rotulo}) => {
             this.rotulo = rotulo;
         });
     }
@@ -48,6 +49,7 @@ export class RotuloUpdateComponent implements OnInit {
     private onSaveError() {
         this.isSaving = false;
     }
+
     get rotulo() {
         return this._rotulo;
     }

@@ -1,9 +1,10 @@
 <div>
     <h2 id="page-heading">
         <span>Glossarios</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-glossario" [routerLink]="['/glossario/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-glossario"
+                [routerLink]="['/glossario/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span >
+            <span>
             Create new Glossario
             </span>
         </button>
@@ -14,13 +15,20 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="titulo"><span>Titulo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="descricao"><span>Descricao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th></th>
+                <th jhiSortBy="id"><span>ID</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="titulo"><span>Titulo</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="descricao"><span>Descricao</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th></th>
             </tr>
             </thead>
-            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']"
+                   [infiniteScrollDistance]="0">
             <tr *ngFor="let glossario of glossarios ;trackBy: trackId">
                 <td><a [routerLink]="['/glossario', glossario.id, 'view' ]">{{glossario.id}}</a></td>
                 <td>{{glossario.titulo}}</td>

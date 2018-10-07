@@ -1,20 +1,20 @@
-import { Injectable } from '@angular/core';
-import { HttpResponse } from '@angular/common/http';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
-import { UserRouteAccessService } from 'app/core';
-import { of } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Glossario } from 'app/shared/model/glossario.model';
-import { GlossarioService } from './glossario.service';
-import { GlossarioComponent } from './glossario.component';
-import { GlossarioDetailComponent } from './glossario-detail.component';
-import { GlossarioUpdateComponent } from './glossario-update.component';
-import { GlossarioDeletePopupComponent } from './glossario-delete-dialog.component';
-import { IGlossario } from 'app/shared/model/glossario.model';
+import {Injectable} from '@angular/core';
+import {HttpResponse} from '@angular/common/http';
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, Routes} from '@angular/router';
+import {UserRouteAccessService} from 'app/core';
+import {of} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {Glossario, IGlossario} from 'app/shared/model/glossario.model';
+import {GlossarioService} from './glossario.service';
+import {GlossarioComponent} from './glossario.component';
+import {GlossarioDetailComponent} from './glossario-detail.component';
+import {GlossarioUpdateComponent} from './glossario-update.component';
+import {GlossarioDeletePopupComponent} from './glossario-delete-dialog.component';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class GlossarioResolve implements Resolve<IGlossario> {
-    constructor(private service: GlossarioService) {}
+    constructor(private service: GlossarioService) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const id = route.params['id'] ? route.params['id'] : null;

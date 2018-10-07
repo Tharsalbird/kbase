@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
-import { IUsuario } from 'app/shared/model/usuario.model';
+import {IUsuario} from 'app/shared/model/usuario.model';
 
 @Component({
     selector: 'jhi-usuario-detail',
@@ -10,10 +10,11 @@ import { IUsuario } from 'app/shared/model/usuario.model';
 export class UsuarioDetailComponent implements OnInit {
     usuario: IUsuario;
 
-    constructor(private activatedRoute: ActivatedRoute) {}
+    constructor(private activatedRoute: ActivatedRoute) {
+    }
 
     ngOnInit() {
-        this.activatedRoute.data.subscribe(({ usuario }) => {
+        this.activatedRoute.data.subscribe(({usuario}) => {
             this.usuario = usuario;
         });
     }

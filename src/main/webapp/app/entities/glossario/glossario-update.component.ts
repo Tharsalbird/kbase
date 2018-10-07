@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { JhiDataUtils } from 'ng-jhipster';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {JhiDataUtils} from 'ng-jhipster';
 
-import { IGlossario } from 'app/shared/model/glossario.model';
-import { GlossarioService } from './glossario.service';
+import {IGlossario} from 'app/shared/model/glossario.model';
+import {GlossarioService} from './glossario.service';
 
 @Component({
     selector: 'jhi-glossario-update',
@@ -15,11 +15,12 @@ export class GlossarioUpdateComponent implements OnInit {
     private _glossario: IGlossario;
     isSaving: boolean;
 
-    constructor(private dataUtils: JhiDataUtils, private glossarioService: GlossarioService, private activatedRoute: ActivatedRoute) {}
+    constructor(private dataUtils: JhiDataUtils, private glossarioService: GlossarioService, private activatedRoute: ActivatedRoute) {
+    }
 
     ngOnInit() {
         this.isSaving = false;
-        this.activatedRoute.data.subscribe(({ glossario }) => {
+        this.activatedRoute.data.subscribe(({glossario}) => {
             this.glossario = glossario;
         });
     }
@@ -61,6 +62,7 @@ export class GlossarioUpdateComponent implements OnInit {
     private onSaveError() {
         this.isSaving = false;
     }
+
     get glossario() {
         return this._glossario;
     }

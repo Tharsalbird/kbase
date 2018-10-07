@@ -1,15 +1,15 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
 
-import { KbaseSharedModule } from 'app/shared';
+import {KbaseSharedModule} from 'app/shared';
 import {
     GlossarioComponent,
-    GlossarioDetailComponent,
-    GlossarioUpdateComponent,
-    GlossarioDeletePopupComponent,
     GlossarioDeleteDialogComponent,
+    GlossarioDeletePopupComponent,
+    GlossarioDetailComponent,
+    glossarioPopupRoute,
     glossarioRoute,
-    glossarioPopupRoute
+    GlossarioUpdateComponent
 } from './';
 
 const ENTITY_STATES = [...glossarioRoute, ...glossarioPopupRoute];
@@ -26,4 +26,5 @@ const ENTITY_STATES = [...glossarioRoute, ...glossarioPopupRoute];
     entryComponents: [GlossarioComponent, GlossarioUpdateComponent, GlossarioDeleteDialogComponent, GlossarioDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class KbaseGlossarioModule {}
+export class KbaseGlossarioModule {
+}
