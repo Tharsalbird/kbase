@@ -2,10 +2,10 @@
     <div class="col-6">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
             <h2 id="jhi-glossario-heading-create">
-                <div *ngIf="!glossario.id; else elseBlock">
+                <div *ngIf="!glossario.id; else glossario_heading_update">
                     <p>Criar glossário</p>
                 </div>
-                <ng-template #elseBlock>
+                <ng-template #glossario_heading_update>
                     <p>Editar glossário</p>
                 </ng-template>
             </h2>
@@ -13,15 +13,6 @@
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group">
-                    <!--<span class="float-right bs-tooltip-right" [ngbTooltip]="tipTitulo" placement="right">-->
-                        <!--<fa-icon [icon]="'info-circle'"></fa-icon>-->
-                    <!--</span>-->
-                    <!--<ng-template #tipTitulo>-->
-                        <!--<ul>-->
-                            <!--<li>Campo obrigatório</li>-->
-                            <!--<li><p>Este campo não pode ser maior que 50 caracteres.</li></p>-->
-                        <!--</ul>-->
-                    <!--</ng-template>-->
 
                     <label class="form-control-label" for="field_titulo">Titulo </label>
                     <input type="text" class="form-control" name="titulo" id="field_titulo"
@@ -43,13 +34,13 @@
                 </div>
                 <div class="form-group">
                     <!--<span class="float-right bs-tooltip-right" placement="right" [ngbTooltip]="tipDescricao"-->
-                          <!--placement="right">-->
-                        <!--<fa-icon [icon]="'info-circle'"></fa-icon>-->
+                    <!--placement="right">-->
+                    <!--<fa-icon [icon]="'info-circle'"></fa-icon>-->
                     <!--</span>-->
                     <!--<ng-template #tipDescricao>-->
-                        <!--<ul>-->
-                            <!--<li>Campo obrigatório</li>-->
-                        <!--</ul>-->
+                    <!--<ul>-->
+                    <!--<li>Campo obrigatório</li>-->
+                    <!--</ul>-->
                     <!--</ng-template>-->
                     <label class="form-control-label" for="field_descricao">Descrição </label>
                     <textarea class="form-control" name="descricao" id="field_descricao"

@@ -5,13 +5,13 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span>Titulo</span></dt>
+                <dt><span>Título</span></dt>
                 <dd>
                     <span>{{glossario.titulo}}</span>
                 </dd>
-                <dt><span>Descricao</span></dt>
+                <dt><span>Descrição</span></dt>
                 <dd>
-                    <span>{{glossario.descricao}}</span>
+                    <span [innerHTML]="glossario.descricao"></span>
                 </dd>
             </dl>
 

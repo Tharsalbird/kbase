@@ -131,7 +131,7 @@ public class UserResource {
         Optional<UserDTO> updatedUser = userService.updateUser(userDTO);
 
         return ResponseUtil.wrapOrNotFound(updatedUser,
-            HeaderUtil.createAlert("A user is updated with identifier " + userDTO.getLogin(), userDTO.getLogin()));
+            HeaderUtil.createAlert("Usuaário atualizado " + userDTO.getLogin(), userDTO.getLogin()));
     }
 
     /**

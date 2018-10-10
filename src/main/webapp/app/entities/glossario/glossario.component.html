@@ -25,7 +25,7 @@
                    [infiniteScrollDistance]="0">
             <tr *ngFor="let glossario of glossarios ;trackBy: trackId">
                 <td>{{glossario.titulo}}</td>
-                <td>{{glossario.descricao}}</td>
+                <td [innerHTML]="glossario.descricao"></td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

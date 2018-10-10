@@ -23,9 +23,9 @@
 
 
             </li>
-            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active"
+            <li *ngSwitchCase="true" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="rotulo" routerLinkActive="active"
+                <a class="nav-link" routerLink="/rotulo" routerLinkActive="active"
                    [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                     <fa-icon [icon]="'tag'" [fixedWidth]="true"></fa-icon>
                     <span>Rótulo</span>

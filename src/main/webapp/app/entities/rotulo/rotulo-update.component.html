@@ -1,14 +1,15 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-rotulo-heading">Create or edit a Rotulo</h2>
             <div>
-                <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!rotulo.id">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                           [(ngModel)]="rotulo.id" readonly/>
-                </div>
+                <h2 id="jhi-rotulo-heading-create">
+                    <div *ngIf="!rotulo.id; else rotulo_heading_update">
+                        <p>Criar rótulo</p>
+                    </div>
+                    <ng-template #rotulo_heading_update>
+                        <p>Editar rótulo</p>
+                    </ng-template>
+                </h2>
                 <div class="form-group">
                     <label class="form-control-label" for="field_rotulo">Rotulo</label>
                     <input type="text" class="form-control" name="rotulo" id="field_rotulo"
@@ -16,15 +17,11 @@
                     <div [hidden]="!(editForm.controls.rotulo?.dirty && editForm.controls.rotulo?.invalid)">
                         <small class="form-text text-danger"
                                [hidden]="!editForm.controls.rotulo?.errors?.required">
-                            This field is required.
+                            Campo obrigatório.
                         </small>
                         <small class="form-text text-danger"
-                               [hidden]="!editForm.controls.rotulo?.errors?.minlength">
-                            This field is required to be at least 2 characters.
-                        </small>
-                        <small class="form-text text-danger"
-                               [hidden]="!editForm.controls.rotulo?.errors?.maxlength">
-                            This field cannot be longer than 35 characters.
+                               [hidden]="!editForm.controls.rotulo?.errors?.minlength || !editForm.controls.rotulo?.errors?.maxlength">
+                           Campo precisa ter entre 2 e 35 caracteres.
                         </small>
                     </div>
                 </div>
