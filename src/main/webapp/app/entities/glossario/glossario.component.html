@@ -1,12 +1,9 @@
 <div>
     <h2 id="page-heading">
-        <span>Glossarios</span>
+        <span>Glossários</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-glossario"
                 [routerLink]="['/glossario/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span>
-            Create new Glossario
-            </span>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
@@ -15,13 +12,10 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-                <th jhiSortBy="id"><span>ID</span>
+                <th jhiSortBy="titulo"><span>Título</span>
                     <fa-icon [icon]="'sort'"></fa-icon>
                 </th>
-                <th jhiSortBy="titulo"><span>Titulo</span>
-                    <fa-icon [icon]="'sort'"></fa-icon>
-                </th>
-                <th jhiSortBy="descricao"><span>Descricao</span>
+                <th jhiSortBy="descricao"><span>Descrição</span>
                     <fa-icon [icon]="'sort'"></fa-icon>
                 </th>
                 <th></th>
@@ -30,7 +24,6 @@
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']"
                    [infiniteScrollDistance]="0">
             <tr *ngFor="let glossario of glossarios ;trackBy: trackId">
-                <td><a [routerLink]="['/glossario', glossario.id, 'view' ]">{{glossario.id}}</a></td>
                 <td>{{glossario.titulo}}</td>
                 <td>{{glossario.descricao}}</td>
                 <td class="text-right">
@@ -39,21 +32,18 @@
                                 [routerLink]="['/glossario', glossario.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline">View</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/glossario', glossario.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline">Edit</span>
                         </button>
-                        <button type="submit"
+                        <button type="submit" title="excluir"
                                 [routerLink]="['/', { outlets: { popup: 'glossario/'+ glossario.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline">Delete</span>
                         </button>
                     </div>
                 </td>

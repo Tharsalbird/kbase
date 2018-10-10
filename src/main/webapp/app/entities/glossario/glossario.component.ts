@@ -11,7 +11,8 @@ import {GlossarioService} from './glossario.service';
 
 @Component({
     selector: 'jhi-glossario',
-    templateUrl: './glossario.component.html'
+    templateUrl: './glossario.component.html',
+    styleUrls: ['glossario.scss']
 })
 export class GlossarioComponent implements OnInit, OnDestroy {
     glossarios: IGlossario[];

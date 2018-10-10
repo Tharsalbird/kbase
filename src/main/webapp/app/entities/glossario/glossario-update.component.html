@@ -1,41 +1,63 @@
 <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-6">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-glossario-heading">Create or edit a Glossario</h2>
+            <h2 id="jhi-glossario-heading-create">
+                <div *ngIf="!glossario.id; else elseBlock">
+                    <p>Criar glossário</p>
+                </div>
+                <ng-template #elseBlock>
+                    <p>Editar glossário</p>
+                </ng-template>
+            </h2>
+
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!glossario.id">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                           [(ngModel)]="glossario.id" readonly/>
-                </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_titulo">Titulo</label>
+                    <!--<span class="float-right bs-tooltip-right" [ngbTooltip]="tipTitulo" placement="right">-->
+                        <!--<fa-icon [icon]="'info-circle'"></fa-icon>-->
+                    <!--</span>-->
+                    <!--<ng-template #tipTitulo>-->
+                        <!--<ul>-->
+                            <!--<li>Campo obrigatório</li>-->
+                            <!--<li><p>Este campo não pode ser maior que 50 caracteres.</li></p>-->
+                        <!--</ul>-->
+                    <!--</ng-template>-->
+
+                    <label class="form-control-label" for="field_titulo">Titulo </label>
                     <input type="text" class="form-control" name="titulo" id="field_titulo"
                            [(ngModel)]="glossario.titulo" required minlength="1" maxlength="50"/>
                     <div [hidden]="!(editForm.controls.titulo?.dirty && editForm.controls.titulo?.invalid)">
                         <small class="form-text text-danger"
                                [hidden]="!editForm.controls.titulo?.errors?.required">
-                            This field is required.
+                            Campo obrigatório.
                         </small>
                         <small class="form-text text-danger"
                                [hidden]="!editForm.controls.titulo?.errors?.minlength">
-                            This field is required to be at least 1 characters.
+                            Campo obrigatório.
                         </small>
                         <small class="form-text text-danger"
                                [hidden]="!editForm.controls.titulo?.errors?.maxlength">
-                            This field cannot be longer than 50 characters.
+                            Este campo não pode ser maior que 50 caracteres.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_descricao">Descricao</label>
+                    <!--<span class="float-right bs-tooltip-right" placement="right" [ngbTooltip]="tipDescricao"-->
+                          <!--placement="right">-->
+                        <!--<fa-icon [icon]="'info-circle'"></fa-icon>-->
+                    <!--</span>-->
+                    <!--<ng-template #tipDescricao>-->
+                        <!--<ul>-->
+                            <!--<li>Campo obrigatório</li>-->
+                        <!--</ul>-->
+                    <!--</ng-template>-->
+                    <label class="form-control-label" for="field_descricao">Descrição </label>
                     <textarea class="form-control" name="descricao" id="field_descricao"
                               [(ngModel)]="glossario.descricao" required></textarea>
                     <div [hidden]="!(editForm.controls.descricao?.dirty && editForm.controls.descricao?.invalid)">
                         <small class="form-text text-danger"
                                [hidden]="!editForm.controls.descricao?.errors?.required">
-                            This field is required.
+                            Campo obrigatório.
                         </small>
                     </div>
                 </div>
@@ -43,11 +65,11 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancelar</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
                         class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Salvar</span>
                 </button>
             </div>
         </form>
