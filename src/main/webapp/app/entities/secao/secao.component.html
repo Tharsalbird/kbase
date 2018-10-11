@@ -1,0 +1,139 @@
+<div>
+    <h2 id="page-heading">
+        <span>Seções</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-secao"
+                [routerLink]="['/secao/new']">
+            <fa-icon [icon]="'search'"></fa-icon>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="secaos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                <th jhiSortBy="nome"><span>Nome</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="modelo"><span>Modelo</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="dataCriacao"><span>Data Criacao</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-group" id="adv-search">
+                                    <input type="text" class="form-control" placeholder="Search for snippets"/>
+                                    <div class="input-group-btn">
+                                        <div class="btn-group" role="group">
+                                            <div ngbDropdown class="dropdown dropdown-lg">
+                                                <button type="button" class="btn btn-default dropdown-toggle"
+                                                        data-toggle="dropdown"  ngbDropdownToggle aria-expanded="false"><span
+                                                    class="caret"></span></button>
+                                                <div ngbDropdownMenu class="dropdown dropdown-menu dropdown-menu-right" role="menu">
+                                                    <form class="form-horizontal" role="form">
+                                                        <div class="form-group">
+                                                            <label for="filter">Filter by</label>
+                                                            <select class="form-control">
+                                                                <option value="0" selected>All Snippets</option>
+                                                                <option value="1">Featured</option>
+                                                                <option value="2">Most popular</option>
+                                                                <option value="3">Top rated</option>
+                                                                <option value="4">Most commented</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="contain">Author</label>
+                                                            <input class="form-control" type="text" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="contain">Contains the words</label>
+                                                            <input class="form-control" type="text" />
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                                    </form>
+                                                    <!--<form class="form-horizontal" role="form">-->
+                                                        <!--<div class="form-group dropdown-item form-control">-->
+                                                            <!--<label class="form-control-label"-->
+                                                                   <!--for="field_modelo">Modelo</label>-->
+                                                            <!--<select class="form-control" name="modelo"-->
+                                                                    <!--[(ngModel)]="secao.modelo" id="field_modelo"-->
+                                                                    <!--required>-->
+                                                                <!--<option value="F_A_Q">F_A_Q</option>-->
+                                                                <!--<option value="ERRO">ERRO</option>-->
+                                                                <!--<option value="ARTIGO">ARTIGO</option>-->
+                                                            <!--</select>-->
+                                                            <!--<div-->
+                                                                <!--[hidden]="!(editForm.controls.modelo?.dirty && editForm.controls.modelo?.invalid)">-->
+                                                                <!--<small class="form-text text-danger"-->
+                                                                       <!--[hidden]="!editForm.controls.modelo?.errors?.required">-->
+                                                                    <!--This field is required.-->
+                                                                <!--</small>-->
+                                                            <!--</div>-->
+                                                        <!--</div>-->
+                                                        <!--<button type="submit" class="btn btn-primary"><span-->
+                                                            <!--class="glyphicon-search"-->
+                                                            <!--aria-hidden="true"></span></button>-->
+                                                    <!--</form>-->
+                                                </div>
+                                            </div>
+                                            <button type="submit"
+                                                    [routerLink]="['/secao']"
+                                                    class="btn btn-success">
+                                                <fa-icon [icon]="'filter'"></fa-icon>
+                                            </button>
+                                            <!--<button type="button" class="btn btn-primary"><span-->
+                                            <!--class="glyphicon glyphicon-search" aria-hidden="true"></span></button>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let secao of secaos ;trackBy: trackId">
+                <td>{{secao.nome}}</td>
+                <td>{{secao.modelo}}</td>
+                <td>{{secao.dataCriacao | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/secao', secao.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/secao', secao.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'secao/'+ secao.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="secaos && secaos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5"
+                            [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5"
+                            [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

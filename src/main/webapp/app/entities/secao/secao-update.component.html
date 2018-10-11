@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-secao-heading">Create or edit a Secao</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!secao.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="secao.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="secao.nome" required minlength="2" maxlength="60"/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.minlength">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.maxlength">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_modelo">Modelo</label>
+                    <select class="form-control" name="modelo" [(ngModel)]="secao.modelo" id="field_modelo"  required>
+                        <option value="F_A_Q">F_A_Q</option>
+                        <option value="ERRO">ERRO</option>
+                        <option value="ARTIGO">ARTIGO</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.modelo?.dirty && editForm.controls.modelo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.modelo?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_editavel">Editavel</label>
+                    <input type="checkbox" class="form-control" name="editavel" id="field_editavel"
+                        [(ngModel)]="secao.editavel" />
+                    <div [hidden]="!(editForm.controls.editavel?.dirty && editForm.controls.editavel?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.editavel?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dataCriacao">Data Criacao</label>
+                    <div class="input-group">
+                        <input id="field_dataCriacao" type="text" class="form-control" name="dataCriacao" ngbDatepicker  #dataCriacaoDp="ngbDatepicker" [(ngModel)]="secao.dataCriacao"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataCriacaoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

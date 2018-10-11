@@ -1,9 +1,10 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
-import {KbaseGlossarioModule} from './glossario/glossario.module';
-import {KbaseRotuloModule} from './rotulo/rotulo.module';
-import {KbaseUsuarioModule} from './usuario/usuario.module';
+import { KbaseGlossarioModule } from './glossario/glossario.module';
+import { KbaseRotuloModule } from './rotulo/rotulo.module';
+import { KbaseUsuarioModule } from './usuario/usuario.module';
 
+import { KbaseSecaoModule } from './secao/secao.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -12,6 +13,7 @@ import {KbaseUsuarioModule} from './usuario/usuario.module';
         KbaseGlossarioModule,
         KbaseRotuloModule,
         KbaseUsuarioModule,
+        KbaseSecaoModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
@@ -19,5 +21,4 @@ import {KbaseUsuarioModule} from './usuario/usuario.module';
     providers: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class KbaseEntityModule {
-}
+export class KbaseEntityModule {}

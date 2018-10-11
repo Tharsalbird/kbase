@@ -37,7 +37,9 @@ import {
     faUser,
     faUserPlus,
     faWrench,
-    faInfoCircle
+    faInfoCircle,
+    faSitemap,
+    faFilter
 } from '@fortawesome/free-solid-svg-icons';
 
 // Imports all fontawesome core and solid icons
@@ -78,5 +80,7 @@ library.add(faAsterisk);
 library.add(faClipboardList);
 library.add(faTag);
 library.add(faInfoCircle);
+library.add(faSitemap);
+library.add(faFilter);
 
 // jhipster-needle-add-element-to-vendor - JHipster will add new menu items here
