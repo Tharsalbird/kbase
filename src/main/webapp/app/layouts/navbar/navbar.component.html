@@ -9,8 +9,84 @@
             <span class="logo navbar-title">Kbase</span>
         </a>
     </div>
-    <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed"
-         [ngSwitch]="isAuthenticated()">
+    <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
+        <div class="row" style="width: 100%;">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6" style="padding-right: 0px !important;">
+                        <div class="row">
+                            <div class="col-md-11">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="username" id="username" placeholder="Realiza sua pesquisa" [(ngModel)]="username" style="border-top-right-radius: 0; border-bottom-right-radius: 0px;">
+                                        <div class="input-group-append">
+                                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                                <div ngbDropdown class="d-inline-block">
+                                                    <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle style="border-radius: 0px">
+                                                        <fa-icon [icon]="'filter'" style="color: #FFFFFF;"></fa-icon>&nbsp;
+                                                    </button>
+                                                    <div ngbDropdownMenu style="padding: 15px">
+                                                        <div class="row" style="width: 250px">
+                                                            <div class="col-md-12">
+                                                                <label class="form-control-label">Início </label>
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <input class="form-control" placeholder="yyyy-mm-dd"
+                                                                               name="inicio" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                                                                        <div class="input-group-append">
+                                                                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                                                                                <fa-icon [icon]="'calendar'" style="color: #000000;"></fa-icon>&nbsp;
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12" style="width: 250px">
+                                                                <label class="form-control-label">Fim </label>
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <input class="form-control" placeholder="yyyy-mm-dd"
+                                                                               name="fim" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                                                                        <div class="input-group-append">
+                                                                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                                                                                <fa-icon [icon]="'calendar'" style="color: #000000;"></fa-icon>&nbsp;
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12" style="width: 250px">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label" for="field_model">Modelo</label>
+                                                                    <select class="form-control" name="model" [(ngModel)]="model" id="field_model"  required>
+                                                                        <option value="F_A_Q">F_A_Q</option>
+                                                                        <option value="ERRO">ERRO</option>
+                                                                        <option value="ARTIGO">ARTIGO</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="buttom" class="btn btn-primary" style="background-color: #FFFFFF !important; border-color: #FFFFFF">
+                                                    <fa-icon [icon]="'search'" style="color: #000000;"></fa-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </div>
         <ul class="navbar-nav ml-auto">
             <li *ngSwitchCase="true" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">
