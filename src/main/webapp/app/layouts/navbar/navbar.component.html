@@ -36,8 +36,7 @@
                     <span>Rótulo</span>
                 </a>
             </li>
-            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer"
-                routerLinkActive="active"
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">
 
                 <a class="nav-link" routerLink="usuario" routerLinkActive="active"
