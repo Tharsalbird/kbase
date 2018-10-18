@@ -12,6 +12,7 @@ import { SecaoDetailComponent } from './secao-detail.component';
 import { SecaoUpdateComponent } from './secao-update.component';
 import { SecaoDeletePopupComponent } from './secao-delete-dialog.component';
 import { ISecao } from 'app/shared/model/secao.model';
+import {SecaoFilterComponent} from 'app/entities/secao/secao-filter.component';
 
 @Injectable({ providedIn: 'root' })
 export class SecaoResolve implements Resolve<ISecao> {
@@ -82,6 +83,19 @@ export const secaoPopupRoute: Routes = [
     {
         path: 'secao/:id/delete',
         component: SecaoDeletePopupComponent,
+        resolve: {
+            secao: SecaoResolve
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'Seções'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
+    {
+        path: 'secao/filter',
+        component: SecaoFilterComponent,
         resolve: {
             secao: SecaoResolve
         },

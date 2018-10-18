@@ -1,23 +1,28 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
 
-import { KbaseSharedModule } from 'app/shared';
+import {KbaseSharedModule} from 'app/shared';
 import {
     SecaoComponent,
-    SecaoDetailComponent,
-    SecaoUpdateComponent,
-    SecaoDeletePopupComponent,
     SecaoDeleteDialogComponent,
+    SecaoDeletePopupComponent,
+    SecaoDetailComponent,
+    SecaoFilterComponent,
+    SecaoFilterFormComponent,
+    secaoPopupRoute,
     secaoRoute,
-    secaoPopupRoute
+    SecaoUpdateComponent
 } from './';
 
 const ENTITY_STATES = [...secaoRoute, ...secaoPopupRoute];
 
 @NgModule({
     imports: [KbaseSharedModule, RouterModule.forChild(ENTITY_STATES)],
-    declarations: [SecaoComponent, SecaoDetailComponent, SecaoUpdateComponent, SecaoDeleteDialogComponent, SecaoDeletePopupComponent],
-    entryComponents: [SecaoComponent, SecaoUpdateComponent, SecaoDeleteDialogComponent, SecaoDeletePopupComponent],
+    declarations: [SecaoComponent, SecaoDetailComponent, SecaoUpdateComponent, SecaoDeleteDialogComponent, SecaoDeletePopupComponent,
+        SecaoFilterComponent, SecaoFilterFormComponent],
+    entryComponents: [SecaoComponent, SecaoUpdateComponent, SecaoDeleteDialogComponent, SecaoDeletePopupComponent,
+        SecaoFilterComponent, SecaoFilterFormComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class KbaseSecaoModule {}
+export class KbaseSecaoModule {
+}

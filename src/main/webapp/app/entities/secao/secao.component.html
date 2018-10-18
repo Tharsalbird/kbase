@@ -3,7 +3,7 @@
         <span>Seções</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-secao"
                 [routerLink]="['/secao/new']">
-            <fa-icon [icon]="'search'"></fa-icon>
+            <fa-icon [icon]="'plus'"></fa-icon>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
@@ -23,75 +23,81 @@
                 </th>
                 <th>
                     <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="input-group" id="adv-search">
-                                    <input type="text" class="form-control" placeholder="Search for snippets"/>
-                                    <div class="input-group-btn">
-                                        <div class="btn-group" role="group">
-                                            <div ngbDropdown class="dropdown dropdown-lg">
-                                                <button type="button" class="btn btn-default dropdown-toggle"
-                                                        data-toggle="dropdown"  ngbDropdownToggle aria-expanded="false"><span
-                                                    class="caret"></span></button>
-                                                <div ngbDropdownMenu class="dropdown dropdown-menu dropdown-menu-right" role="menu">
-                                                    <form class="form-horizontal" role="form">
-                                                        <div class="form-group">
-                                                            <label for="filter">Filter by</label>
-                                                            <select class="form-control">
-                                                                <option value="0" selected>All Snippets</option>
-                                                                <option value="1">Featured</option>
-                                                                <option value="2">Most popular</option>
-                                                                <option value="3">Top rated</option>
-                                                                <option value="4">Most commented</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="contain">Author</label>
-                                                            <input class="form-control" type="text" />
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="contain">Contains the words</label>
-                                                            <input class="form-control" type="text" />
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                                    </form>
-                                                    <!--<form class="form-horizontal" role="form">-->
-                                                        <!--<div class="form-group dropdown-item form-control">-->
-                                                            <!--<label class="form-control-label"-->
-                                                                   <!--for="field_modelo">Modelo</label>-->
-                                                            <!--<select class="form-control" name="modelo"-->
-                                                                    <!--[(ngModel)]="secao.modelo" id="field_modelo"-->
-                                                                    <!--required>-->
-                                                                <!--<option value="F_A_Q">F_A_Q</option>-->
-                                                                <!--<option value="ERRO">ERRO</option>-->
-                                                                <!--<option value="ARTIGO">ARTIGO</option>-->
-                                                            <!--</select>-->
-                                                            <!--<div-->
-                                                                <!--[hidden]="!(editForm.controls.modelo?.dirty && editForm.controls.modelo?.invalid)">-->
-                                                                <!--<small class="form-text text-danger"-->
-                                                                       <!--[hidden]="!editForm.controls.modelo?.errors?.required">-->
-                                                                    <!--This field is required.-->
-                                                                <!--</small>-->
-                                                            <!--</div>-->
-                                                        <!--</div>-->
-                                                        <!--<button type="submit" class="btn btn-primary"><span-->
-                                                            <!--class="glyphicon-search"-->
-                                                            <!--aria-hidden="true"></span></button>-->
-                                                    <!--</form>-->
-                                                </div>
-                                            </div>
-                                            <button type="submit"
-                                                    [routerLink]="['/secao']"
-                                                    class="btn btn-success">
-                                                <fa-icon [icon]="'filter'"></fa-icon>
-                                            </button>
-                                            <!--<button type="button" class="btn btn-primary"><span-->
-                                            <!--class="glyphicon glyphicon-search" aria-hidden="true"></span></button>-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'secao/filter'} }]"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                        </button>
+                        <!--<div class="row">-->
+                        <!--<div class="col">-->
+                        <!---->
+                        <!--<div ngbDropdown class="d-inline-block">-->
+                        <!--<button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>-->
+                        <!--<fa-icon [icon]="'filter'"></fa-icon>-->
+                        <!--</button>-->
+                        <!--<div ngbDropdownMenu aria-labelledby="dropdownBasic1">-->
+
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div> -->
+                        <!--<div class="row">-->
+                            <!--<div class="col">-->
+
+                                <!--<div class="btn-group mr-auto">-->
+                                    <!--<div class="btn-group" ngbDropdown role="group"-->
+                                         <!--aria-label="Button group with nested dropdown">-->
+                                        <!--<button class="btn btn-outline-danger" ngbDropdownToggle>Select me</button>-->
+                                        <!--<div class="dropdown-menu" ngbDropdownMenu>-->
+                                            <!--<form class="form-horizontal">-->
+
+                                            <!--</form>-->
+                                            <!--<button class="btn float-right">-->
+                                                <!--<fa-icon [icon]="'filter'"></fa-icon>-->
+                                            <!--</button>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+
+                                <!--&lt;!&ndash;<div class="input-group-btn">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div class="btn-group" role="group">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div class="dropdown dropdown-lg">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<button type="button" class="btn btn-default dropdown-toggle"&ndash;&gt;-->
+                                <!--&lt;!&ndash;data-toggle="dropdown" aria-expanded="false"><span&ndash;&gt;-->
+                                <!--&lt;!&ndash;class="caret"></span></button>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div class="dropdown-menu dropdown-menu-right" role="menu">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<form class="form-horizontal" role="form">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="filter">Filter by</label>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<select class="form-control">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="0" selected>All Snippets</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="1">Featured</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="2">Most popular</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="3">Top rated</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="4">Most commented</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</select>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="contain">Author</label>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input class="form-control" type="text"/>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<label for="contain">Contains the words</label>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<input class="form-control" type="text"/>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<button type="submit" class="btn btn-primary"><span&ndash;&gt;-->
+                                <!--&lt;!&ndash;class="glyphicon glyphicon-search" aria-hidden="true"></span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</form>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<button type="button" class="btn btn-primary"><span&ndash;&gt;-->
+                                <!--&lt;!&ndash;class="glyphicon glyphicon-search" aria-hidden="true"></span></button>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
                     </div>
                 </th>
             </tr>
