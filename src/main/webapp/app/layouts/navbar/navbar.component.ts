@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgbDropdownConfig, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
-import {VERSION} from 'app/app.constants';
-import {LoginModalService, LoginService, Principal} from 'app/core';
-import {ProfileService} from '../profiles/profile.service';
+import { VERSION } from 'app/app.constants';
+import { LoginModalService, LoginService, Principal } from 'app/core';
+import { ProfileService } from '../profiles/profile.service';
 
 @Component({
     selector: 'jhi-navbar',
@@ -23,10 +23,12 @@ export class NavbarComponent implements OnInit {
         private principal: Principal,
         private loginModalService: LoginModalService,
         private profileService: ProfileService,
-        private router: Router
+        private router: Router,
+        private config: NgbDropdownConfig
     ) {
         this.version = VERSION ? 'v' + VERSION : '';
         this.isNavbarCollapsed = true;
+        this.config.autoClose = false;
     }
 
     ngOnInit() {
@@ -57,5 +59,4 @@ export class NavbarComponent implements OnInit {
     toggleNavbar() {
         this.isNavbarCollapsed = !this.isNavbarCollapsed;
     }
-
 }
