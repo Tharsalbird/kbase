@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="registro">
+            <h2><span>Registro</span> {{registro.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Titulo</span></dt>
+                <dd>
+                    <span>{{registro.titulo}}</span>
+                </dd>
+                <dt><span>Texto</span></dt>
+                <dd>
+                    <span>{{registro.texto}}</span>
+                </dd>
+                <dt><span>Secao</span></dt>
+                <dd>
+                    <div *ngIf="registro.secaoId">
+                        <a [routerLink]="['/secao', registro.secaoId, 'view']">{{registro.secaoNome}}</a>
+                    </div>
+                </dd>
+                <dt><span>Rotulo</span></dt>
+                <dd>
+                    <span *ngFor="let rotulo of registro.rotulos; let last = last">
+                        <a [routerLink]="['/rotulo', rotulo?.id, 'view' ]">{{rotulo.rotulo}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/registro', registro.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
