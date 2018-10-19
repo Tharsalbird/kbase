@@ -1,0 +1,51 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "secao",
+            "otherEntityName": "secao",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipName": "rotulo",
+            "otherEntityName": "rotulo",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "rotulo",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "registro"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "titulo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "3",
+            "fieldValidateRulesMaxlength": "150"
+        },
+        {
+            "fieldName": "texto",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20181019013810",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "registro",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}

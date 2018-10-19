@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="chaveErro">
+            <h2><span>{{chaveErro.titulo}}</span></h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Descricao</span></dt>
+                <dd class="border">
+                    <span>{{chaveErro.descricao}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/chave-erro', chaveErro.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>
+            </button>
+        </div>
+    </div>
+</div>

@@ -9,15 +9,19 @@ import {
     faBars,
     faBell,
     faBook,
+    faCalendar,
     faCalendarAlt,
     faClipboardList,
     faClock,
     faCloud,
+    faExclamationTriangle,
     faEye,
+    faFilter,
     faFlag,
     faHdd,
     faHeart,
     faHome,
+    faInfoCircle,
     faList,
     faPencilAlt,
     faPlus,
@@ -26,6 +30,7 @@ import {
     faSearch,
     faSignInAlt,
     faSignOutAlt,
+    faSitemap,
     faSort,
     faSync,
     faTachometerAlt,
@@ -36,11 +41,7 @@ import {
     faTrashAlt,
     faUser,
     faUserPlus,
-    faWrench,
-    faInfoCircle,
-    faSitemap,
-    faFilter,
-    faCalendar
+    faWrench
 } from '@fortawesome/free-solid-svg-icons';
 
 // Imports all fontawesome core and solid icons
@@ -84,5 +85,6 @@ library.add(faInfoCircle);
 library.add(faSitemap);
 library.add(faFilter);
 library.add(faCalendar);
+library.add(faExclamationTriangle);
 
 // jhipster-needle-add-element-to-vendor - JHipster will add new menu items here

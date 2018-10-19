@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Registro.
+    -->
+    <changeSet id="20181019013810-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="secao_id"
+                                 baseTableName="registro"
+                                 constraintName="fk_registro_secao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="secao"/>
+
+        <addForeignKeyConstraint baseColumnNames="registros_id"
+                                 baseTableName="registro_rotulo"
+                                 constraintName="fk_registro_rotulo_registros_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="registro"/>
+        <addForeignKeyConstraint baseColumnNames="rotulos_id"
+                                 baseTableName="registro_rotulo"
+                                 constraintName="fk_registro_rotulo_rotulos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rotulo"/>
+        
+    </changeSet>
+</databaseChangeLog>
