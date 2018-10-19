@@ -87,50 +87,75 @@
                 </div>
             </div>
         </div>
-        <ul class="navbar-nav ml-auto">
-            <li *ngSwitchCase="true" routerLinkActive="active"
-                [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="/glossario" routerLinkActive="active"
-                   [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                    <fa-icon [icon]="'clipboard-list'" [fixedWidth]="true"></fa-icon>
-                    <span>Glossário</span>
+        <ul class="navbar-nav ml-auto" style="justify-content: space-around">
+            <li *ngSwitchCase="true" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/glossario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <div class="text-center">
+                        <fa-icon [icon]="'clipboard-list'" [fixedWidth]="true"></fa-icon>
+                    </div>
+                    <div class="text-center">
+                        <span>Glossário</span>
+                    </div>
                 </a>
             </li>
-            <li *ngSwitchCase="true" routerLinkActive="active"
-                [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="/secao" routerLinkActive="active"
-                   [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                    <fa-icon [icon]="'sitemap'" [fixedWidth]="true"></fa-icon>
-                    <span>Seção</span>
+            <li *ngSwitchCase="true" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/glossario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <div class="text-center">
+                        <fa-icon [icon]="'clipboard-list'" [fixedWidth]="true"></fa-icon>
+                    </div>
+                    <div class="text-center">
+                        <span>Glossário</span>
+                    </div>
                 </a>
             </li>
-            <li *ngSwitchCase="true" routerLinkActive="active"
-                [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="/rotulo" routerLinkActive="active"
-                   [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                    <fa-icon [icon]="'tag'" [fixedWidth]="true"></fa-icon>
-                    <span>Rótulo</span>
+            <li *ngSwitchCase="true" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/secao" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <div class="text-center">
+                        <fa-icon [icon]="'sitemap'" [fixedWidth]="true"></fa-icon>
+                    </div>
+                    <div class="text-center">
+                        <span>Seção</span>
+                    </div>
                 </a>
             </li>
-            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer"
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{exact: true}">
-
-                <a class="nav-link" routerLink="usuario" routerLinkActive="active"
-                   [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                    <fa-icon [icon]="'user'" [fixedWidth]="true"></fa-icon>
-                    <span>Usuário</span>
+            <li *ngSwitchCase="true" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/rotulo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <div class="text-center">
+                        <fa-icon [icon]="'tag'" [fixedWidth]="true"></fa-icon>
+                    </div>
+                    <div class="text-center">
+                        <span>Rótulo</span>
+                    </div>
                 </a>
             </li>
-
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="usuario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <div class="text-center">
+                        <fa-icon [icon]="'user'" [fixedWidth]="true"></fa-icon>
+                    </div>
+                    <div class="text-center">
+                        <span>Usuário</span>
+                    </div>
+                </a>
+            </li>
             <li>
                 <a *ngSwitchCase="true" class="nav-link" (click)="logout()" id="logout">
-                    <fa-icon [icon]="'sign-out-alt'" [fixedWidth]="true"></fa-icon>
-                    <span>logout</span>
+                    <div class="text-center">
+                        <fa-icon [icon]="'sign-out-alt'" [fixedWidth]="true"></fa-icon>
+                    </div>
+                    <div class="text-center">
+                        <span>logout</span>
+                    </div>
                 </a>
+            </li>
+            <li>
                 <a *ngSwitchCase="false" class="nav-link" (click)="login()" id="login">
-                    <fa-icon [icon]="'sign-in-alt'" [fixedWidth]="true"></fa-icon>
-                    <span>login</span>
+                    <div class="text-center">
+                        <fa-icon [icon]="'sign-in-alt'" [fixedWidth]="true"></fa-icon>
+                    </div>
+                    <div class="text-center">
+                        <span>login</span>
+                    </div>
                 </a>
             </li>
         </ul>

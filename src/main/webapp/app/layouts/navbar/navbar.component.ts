@@ -29,6 +29,7 @@ export class NavbarComponent implements OnInit {
         this.version = VERSION ? 'v' + VERSION : '';
         this.isNavbarCollapsed = true;
         this.config.autoClose = false;
+        this.config.placement = 'bottom-right';
     }
 
     ngOnInit() {
