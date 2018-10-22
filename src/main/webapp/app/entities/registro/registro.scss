@@ -1,0 +1,56 @@
+.bread-crumb {
+    font-size: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.custom-table-title {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.custom-table-text-area {
+    overflow: hidden;
+    font-size: 15px;
+    max-height: 10rem;
+}
+
+.list-rotulos {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.rotulo-badge {
+    padding: 8px;
+    border-radius: 30px;
+    background-color: #DDD;
+    color: #000000;
+    font-weight: bold;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 10px;
+    margin-bottom: 3px;
+    width: fit-content;
+}
+
+hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #EEEEEE;
+    border-style: solid none;
+    border-width: 1px 0 0 0;
+    margin: 18px 0;
+}
+
+.card-flex {
+    max-height: 30rem;
+    overflow: hidden;
+    display: flex;
+}

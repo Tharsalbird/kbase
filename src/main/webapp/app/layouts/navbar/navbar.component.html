@@ -27,13 +27,30 @@
                                                         <fa-icon [icon]="'filter'" style="color: #FFFFFF;"></fa-icon>&nbsp;
                                                     </button>
                                                     <div ngbDropdownMenu style="padding: 15px">
-                                                        <div class="row" style="width: 250px">
-                                                            <div class="col-md-12">
-                                                                <label class="form-control-label">Início </label>
+                                                        <h4 class="dropdown-header" style="font-size: 1rem;color: black;">Busca Avançada</h4>
+                                                        <h5 class="dropdown-header">Buscar por período</h5>
+                                                        <div class="row input-group" style="width: 20em">
+                                                            <div class="col-6">
+                                                                <h4 class="dropdown-header header">Inicio</h4>
                                                                 <div class="form-group">
                                                                     <div class="input-group">
-                                                                        <input class="form-control" placeholder="yyyy-mm-dd"
-                                                                               name="inicio" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                                                                        <input class="form-control" placeholder="dd-mm-yyyy" [placeholder]="dd-mm-yyyy"
+                                                                               name="inicio" [(ngModel)]="dateInicio" ngbDatepicker #d="ngbDatepicker">
+                                                                        <div class="input-group-append">
+                                                                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                                                                                <fa-icon [icon]="'calendar'" style="color: #000000;"></fa-icon>&nbsp;
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-6" style="width: 20em">
+                                                                <div class="form-group">
+                                                                    <h4 class="dropdown-header header">Fim</h4>
+                                                                    <div class="input-group">
+                                                                        <input class="form-control" placeholder="dd-mm-yyyy" [placeholder]="dd-mm-yyyy"
+                                                                               name="fim" [(ngModel)]="dateFim" ngbDatepicker #d="ngbDatepicker">
                                                                         <div class="input-group-append">
                                                                             <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
                                                                                 <fa-icon [icon]="'calendar'" style="color: #000000;"></fa-icon>&nbsp;
@@ -43,37 +60,33 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <h5 class="dropdown-header">Buscar por tipo</h5>
                                                         <div class="row">
-                                                            <div class="col-md-12" style="width: 250px">
-                                                                <label class="form-control-label">Fim </label>
+                                                            <div class="col-md-12" style="width: 20em">
                                                                 <div class="form-group">
-                                                                    <div class="input-group">
-                                                                        <input class="form-control" placeholder="yyyy-mm-dd"
-                                                                               name="fim" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                                                                        <div class="input-group-append">
-                                                                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
-                                                                                <fa-icon [icon]="'calendar'" style="color: #000000;"></fa-icon>&nbsp;
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
+                                                                    <select class="form-control" name="tipo" [(ngModel)]="tipo" id="field_model" required>
+                                                                        <option value="F_A_Q">F.A.Q.</option>
+                                                                        <option value="ERRO">Erro</option>
+                                                                        <option value="ARTIGO">Artigo</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <h5 class="dropdown-header">Buscar por Secao</h5>
                                                         <div class="row">
-                                                            <div class="col-md-12" style="width: 250px">
+                                                            <div class="col-md-12" style="width: 20em">
                                                                 <div class="form-group">
-                                                                    <label class="form-control-label" for="field_model">Modelo</label>
-                                                                    <select class="form-control" name="model" [(ngModel)]="model" id="field_model"  required>
-                                                                        <option value="F_A_Q">F_A_Q</option>
-                                                                        <option value="ERRO">ERRO</option>
-                                                                        <option value="ARTIGO">ARTIGO</option>
+                                                                    <select class="form-control" name="secao" [(ngModel)]="secao" id="field_mode2" required>
+                                                                        <option value="{{tipo + ' 1 '}}">{{tipo + " 1 "}}</option>
+                                                                        <option value="{{tipo + ' 2 '}}">{{tipo + " 2 "}}</option>
+                                                                        <option value="{{tipo + ' 3 '}}">{{tipo + " 3 "}}</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button type="buttom" class="btn btn-primary" style="background-color: #FFFFFF !important; border-color: #FFFFFF">
+                                                <button class="btn btn-primary" style="background-color: #FFFFFF !important; border-color: #FFFFFF">
                                                     <fa-icon [icon]="'search'" style="color: #000000;"></fa-icon>
                                                 </button>
                                             </div>
@@ -89,12 +102,22 @@
         </div>
         <ul class="navbar-nav ml-auto" style="justify-content: space-around">
             <li *ngSwitchCase="true" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link" routerLink="/glossario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                <a class="nav-link" routerLink="/registro" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                     <div class="text-center">
-                        <fa-icon [icon]="'clipboard-list'" [fixedWidth]="true"></fa-icon>
+                        <fa-icon [icon]="'file-alt'" [fixedWidth]="true"></fa-icon>
                     </div>
                     <div class="text-center">
-                        <span>Glossário</span>
+                        <span>Registro</span>
+                    </div>
+                </a>
+            </li>
+            <li *ngSwitchCase="true" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/chave-erro" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <div class="text-center">
+                        <fa-icon [icon]="'exclamation-triangle'" [fixedWidth]="true"></fa-icon>
+                    </div>
+                    <div class="text-center">
+                        <span>Erro/Exceção</span>
                     </div>
                 </a>
             </li>

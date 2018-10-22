@@ -4,7 +4,7 @@
     </div>
 
     <div class="container-fluid ">
-        <div class="card jh-card full-height">
+        <div class="card jh-card {{router.url == '/' || router.url == '/#' ?'full-height' :''}}">
             <router-outlet></router-outlet>
             <router-outlet name="popup"></router-outlet>
         </div>

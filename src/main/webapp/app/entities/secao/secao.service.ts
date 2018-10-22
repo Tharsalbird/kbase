@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { ISecao } from 'app/shared/model/secao.model';
+import {Moment} from 'moment';
 
 type EntityResponseType = HttpResponse<ISecao>;
 type EntityArrayResponseType = HttpResponse<ISecao[]>;
@@ -20,6 +21,8 @@ export class SecaoService {
 
     create(secao: ISecao): Observable<EntityResponseType> {
         const copy = this.convertDateFromClient(secao);
+        copy.editavel = true;
+        copy.dataCriacao = moment(new Date());
         return this.http
             .post<ISecao>(this.resourceUrl, copy, { observe: 'response' })
             .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));

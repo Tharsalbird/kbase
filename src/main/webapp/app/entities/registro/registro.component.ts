@@ -12,7 +12,8 @@ import { RegistroService } from './registro.service';
 
 @Component({
     selector: 'jhi-registro',
-    templateUrl: './registro.component.html'
+    templateUrl: './registro.component.html',
+    styleUrls: ['registro.scss']
 })
 export class RegistroComponent implements OnInit, OnDestroy {
     currentAccount: any;

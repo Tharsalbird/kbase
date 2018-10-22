@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbDropdownConfig, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import {NgbDateStruct, NgbDropdownConfig, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 
 import { VERSION } from 'app/app.constants';
 import { LoginModalService, LoginService, Principal } from 'app/core';
@@ -17,7 +17,10 @@ export class NavbarComponent implements OnInit {
     swaggerEnabled: boolean;
     modalRef: NgbModalRef;
     version: string;
-
+    dateInicio: NgbDateStruct;
+    dateFim: NgbDateStruct;
+    tipo: String;
+    secao: String;
     constructor(
         private loginService: LoginService,
         private principal: Principal,

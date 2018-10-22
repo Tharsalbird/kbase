@@ -1,11 +1,8 @@
-<div style="overflow: auto">
+<div>
     <h2 id="page-heading">
         <span>Registros</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-registro" [routerLink]="['/registro/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span >
-            Create new Registro
-            </span>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
@@ -25,23 +22,45 @@
     <div class="table-responsive" *ngIf="registros">
         <table class="table table-striped">
             <tbody>
-                <tr *ngFor="let registro of registros ;trackBy: trackId">
-                    <td>
-                        <span class="custom-table-title">{{registro.titulo}} </span><br>
-                        <span class="custom-table-title" *ngIf="registro.secaoId">
-                            <a [routerLink]="['../secao', registro.secaoId , 'view' ]" >{{registro.secaoNome}}</a>
-                        </span>
-                        <br>
-                        <span class="custom-table-text-area">{{registro.texto}}</span><br>
-                        <span class="custom-table-title" *ngIf="registro.secaoId">
-                            <a [routerLink]="['../secao', registro.secaoId , 'view' ]" >Rótulos:</a>
-                        </span>
-                        <br>
+            <tr *ngFor="let registro of registros ;trackBy: trackId">
+                <td>
+                    <div>
+                        <div>
+                            <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="btn-group float-right">
+                                <button type="submit" [routerLink]="['/registro', registro.id, 'view' ]" class="btn btn-info btn-sm">
+                                    <fa-icon [icon]="'eye'"></fa-icon>
+                                </button>
+                                <button type="submit" [routerLink]="['/registro', registro.id, 'edit']" class="btn btn-primary btn-sm">
+                                    <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                </button>
+                                <button type="submit" [routerLink]="['/', { outlets: { popup: 'registro/'+ registro.id + '/delete'} }]"
+                                        replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm">
+                                    <fa-icon [icon]="'times'"></fa-icon>
+                                </button>
+                            </div>
+
+                            <div [routerLink]="['../registro', registro.id , 'view' ]" class="custom-table-title">
+                                {{registro.titulo}}
+                            </div>
+                        </div>
+
+                        <div class="custom-table-title" *ngIf="registro.secaoId">
+                            <a [routerLink]="['../secao', registro.secaoId , 'view' ]">{{registro.secaoNome}}</a>
+                        </div>
+                        <div class="custom-table-text-area" [innerHTML]="registro.texto"></div>
+
+                    </div>
+                    <div>
+                        <div class="custom-table-title" *ngIf="registro.secaoId">
+                            <a [routerLink]="['../secao', registro.secaoId , 'view' ]">Rótulos:</a>
+                        </div>
                         <div class="list-rotulos">
                             <span class="rotulo-badge" *ngFor="let rotulo of registro.rotulos; trackBy: trackId">{{rotulo.rotulo}}</span>
                         </div>
-                    </td>
-                </tr>
+                    </div>
+
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -55,40 +74,3 @@
     </div>
 </div>
 
-<style>
-    .bread-crumb{
-        font-size: 10px;
-    }
-
-    .bold{
-        font-weight: bold;
-    }
-
-    .custom-table-title{
-        font-size: 17px;
-        font-weight: bold;
-    }
-
-    .custom-table-text-area{
-        font-size: 15px;
-    }
-
-    .list-rotulos{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .rotulo-badge{
-        padding: 8px;
-        border-radius: 30px;
-        background-color: #DDD;
-        color: #000000;
-        font-weight: bold;
-        margin-left: 3px;
-        margin-right: 3px;
-        font-size: 10px;
-        margin-bottom: 3px;
-    }
-</style>

@@ -18,86 +18,14 @@
                 <th jhiSortBy="modelo"><span>Modelo</span>
                     <fa-icon [icon]="'sort'"></fa-icon>
                 </th>
-                <th jhiSortBy="dataCriacao"><span>Data Criacao</span>
-                    <fa-icon [icon]="'sort'"></fa-icon>
-                </th>
                 <th>
-                    <div class="container">
-                        <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'secao/filter'} }]"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                        </button>
-                        <!--<div class="row">-->
-                        <!--<div class="col">-->
-                        <!---->
-                        <!--<div ngbDropdown class="d-inline-block">-->
-                        <!--<button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>-->
-                        <!--<fa-icon [icon]="'filter'"></fa-icon>-->
-                        <!--</button>-->
-                        <!--<div ngbDropdownMenu aria-labelledby="dropdownBasic1">-->
-
-                        <!--</div>-->
-                        <!--</div>-->
-                        <!--</div>-->
-                        <!--</div> -->
-                        <!--<div class="row">-->
-                            <!--<div class="col">-->
-
-                                <!--<div class="btn-group mr-auto">-->
-                                    <!--<div class="btn-group" ngbDropdown role="group"-->
-                                         <!--aria-label="Button group with nested dropdown">-->
-                                        <!--<button class="btn btn-outline-danger" ngbDropdownToggle>Select me</button>-->
-                                        <!--<div class="dropdown-menu" ngbDropdownMenu>-->
-                                            <!--<form class="form-horizontal">-->
-
-                                            <!--</form>-->
-                                            <!--<button class="btn float-right">-->
-                                                <!--<fa-icon [icon]="'filter'"></fa-icon>-->
-                                            <!--</button>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-
-
-                                <!--&lt;!&ndash;<div class="input-group-btn">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="btn-group" role="group">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="dropdown dropdown-lg">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<button type="button" class="btn btn-default dropdown-toggle"&ndash;&gt;-->
-                                <!--&lt;!&ndash;data-toggle="dropdown" aria-expanded="false"><span&ndash;&gt;-->
-                                <!--&lt;!&ndash;class="caret"></span></button>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="dropdown-menu dropdown-menu-right" role="menu">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<form class="form-horizontal" role="form">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<label for="filter">Filter by</label>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<select class="form-control">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="0" selected>All Snippets</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="1">Featured</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="2">Most popular</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="3">Top rated</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="4">Most commented</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</select>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<label for="contain">Author</label>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<input class="form-control" type="text"/>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<label for="contain">Contains the words</label>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<input class="form-control" type="text"/>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<button type="submit" class="btn btn-primary"><span&ndash;&gt;-->
-                                <!--&lt;!&ndash;class="glyphicon glyphicon-search" aria-hidden="true"></span>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</button>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</form>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<button type="button" class="btn btn-primary"><span&ndash;&gt;-->
-                                <!--&lt;!&ndash;class="glyphicon glyphicon-search" aria-hidden="true"></span></button>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                            <!--</div>-->
-                        <!--</div>-->
+                    <div class="row input-group">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Filtrar resultados" [(ngModel)]="username" style="margin: auto; border-top-right-radius: 0; border-bottom-right-radius: 0px;">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" style="background-color: #FFFFFF !important; border-color: #ced4da">
+                                <fa-icon [icon]="'search'" style="color: #000000;"></fa-icon>
+                            </button>
+                        </div>
                     </div>
                 </th>
             </tr>
@@ -106,7 +34,6 @@
             <tr *ngFor="let secao of secaos ;trackBy: trackId">
                 <td>{{secao.nome}}</td>
                 <td>{{secao.modelo}}</td>
-                <td>{{secao.dataCriacao | date:'mediumDate'}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
@@ -114,12 +41,12 @@
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
                         </button>
-                        <button type="submit"
+                        <button type="submit" [disabled]="secao.id && !secao.editavel"
                                 [routerLink]="['/secao', secao.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                         </button>
-                        <button type="submit"
+                        <button type="submit" [disabled]="secao.id && !secao.editavel"
                                 [routerLink]="['/', { outlets: { popup: 'secao/'+ secao.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"

@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { JhiAlertService, JhiDataUtils } from 'ng-jhipster';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {JhiAlertService, JhiDataUtils} from 'ng-jhipster';
 
-import { IRegistro } from 'app/shared/model/registro.model';
-import { RegistroService } from './registro.service';
-import { ISecao } from 'app/shared/model/secao.model';
-import { SecaoService } from 'app/entities/secao';
-import { IRotulo } from 'app/shared/model/rotulo.model';
-import { RotuloService } from 'app/entities/rotulo';
+import {IRegistro} from 'app/shared/model/registro.model';
+import {RegistroService} from './registro.service';
+import {ISecao} from 'app/shared/model/secao.model';
+import {SecaoService} from 'app/entities/secao';
+import {IRotulo} from 'app/shared/model/rotulo.model';
+import {RotuloService} from 'app/entities/rotulo';
 
 @Component({
     selector: 'jhi-registro-update',
@@ -23,6 +23,8 @@ export class RegistroUpdateComponent implements OnInit {
 
     rotulos: IRotulo[];
 
+    tags: string[];
+
     constructor(
         private dataUtils: JhiDataUtils,
         private jhiAlertService: JhiAlertService,
@@ -30,11 +32,12 @@ export class RegistroUpdateComponent implements OnInit {
         private secaoService: SecaoService,
         private rotuloService: RotuloService,
         private activatedRoute: ActivatedRoute
-    ) {}
+    ) {
+    }
 
     ngOnInit() {
         this.isSaving = false;
-        this.activatedRoute.data.subscribe(({ registro }) => {
+        this.activatedRoute.data.subscribe(({registro}) => {
             this.registro = registro;
         });
         this.secaoService.query().subscribe(
@@ -111,11 +114,16 @@ export class RegistroUpdateComponent implements OnInit {
         }
         return option;
     }
+
     get registro() {
         return this._registro;
     }
 
     set registro(registro: IRegistro) {
         this._registro = registro;
+    }
+
+    addTag(tag: string) {
+        this.tags.push(tag);
     }
 }

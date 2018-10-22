@@ -1,43 +1,148 @@
 <div class="row justify-content-center">
-    <div class="col-8">
-        <div *ngIf="registro">
-            <h2><span>Registro</span> {{registro.id}}</h2>
-            <hr>
+    <div class="container">
+        <div class="my-4" *ngIf="registro">
+            <div class="row">
+                <div class="col-8">
+                    <h2><span>{{registro.titulo}}</span></h2>
+                </div>
+                <div class="col-4 text-right">
+                    <h5>
+                        <span class="small"><span class="bold">Código: </span>{{registro.id}}</span>
+                    </h5>
+                </div>
+            </div>
+
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span>Titulo</span></dt>
+                <dt hidden><span>Texto</span></dt>
                 <dd>
-                    <span>{{registro.titulo}}</span>
+                    <span [innerHTML]="registro.texto"></span>
                 </dd>
-                <dt><span>Texto</span></dt>
+                <dt><span>Secao:</span></dt>
                 <dd>
-                    <span>{{registro.texto}}</span>
-                </dd>
-                <dt><span>Secao</span></dt>
-                <dd>
-                    <div *ngIf="registro.secaoId">
+                    <span *ngIf="registro.secaoId">
                         <a [routerLink]="['/secao', registro.secaoId, 'view']">{{registro.secaoNome}}</a>
-                    </div>
-                </dd>
-                <dt><span>Rotulo</span></dt>
-                <dd>
-                    <span *ngFor="let rotulo of registro.rotulos; let last = last">
-                        <a [routerLink]="['/rotulo', rotulo?.id, 'view' ]">{{rotulo.rotulo}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
+                <dt><span>Rótulos:</span></dt>
+                <dd>
+                    <div class="list-rotulos">
+                        <span class="rotulo-badge" *ngFor="let rotulo of registro.rotulos; trackBy: trackId">{{rotulo.rotulo}}</span>
+                    </div>
+                </dd>
             </dl>
+            <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>
+                </button>
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
-            </button>
+                <button type="button"
+                        [routerLink]="['/registro', registro.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                </button>
+            </div>
+        </div>
 
-            <button type="button"
-                    [routerLink]="['/registro', registro.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
-            </button>
+        <hr>
+        <div class="row my-4" style="height: 2rem"></div>
+
+        <div class="card my-3">
+            <div class="card-header">
+                <div class="row">
+                    <h4>Registros relacionados</h4>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="table-responsive" *ngIf="registros">
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr *ngFor="let registroRelacionado of registros ;trackBy: trackId" [hidden]="registroRelacionado.id == registro.id">
+                                <td>
+                                    <span class="custom-table-title">{{registroRelacionado.titulo}}</span><br>
+                                    <span class="custom-table-text-area" *ngIf="registroRelacionado.secaoId">
+                                        <a [routerLink]="['../secao', registroRelacionado.secaoId , 'view' ]">{{registroRelacionado.secaoNome}}</a>
+                                    </span><br/>
+                                    <div class="custom-table-text-area" [innerHTML]="registroRelacionado.texto"></div>
+                                    <br>
+
+                                    <dl class="row-md jh-entity-details">
+                                        <dt><span>Rótulos:</span></dt>
+                                        <dd>
+                                            <div class="list-rotulos">
+                                                <span class="rotulo-badge" *ngFor="let rotuloRelacionado of registroRelacionado.rotulos; trackBy: trackId">{{rotuloRelacionado.rotulo}}</span>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            <hr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-4"></div>
+
+        <div class="card my-3">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-4">
+                        <h4>Registros parecidos</h4>
+                    </div>
+                    <div class="col-8">
+                        <span class="bread-crumb"><span class="bold">Modelo:</span>Artigo</span>
+                        <span class="bread-crumb"><span class="bold">Seção:</span>{{registro.secaoNome}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-4 col-8">
+                        <span class="bread-crumb bold">Rótulos:</span>
+                        <div class="list-rotulos">
+                            <span class="rotulo-badge" *ngFor="let rotulo of registro.rotulos; trackBy: trackId">{{rotulo.rotulo}}</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="table-responsive" *ngIf="registros">
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr
+                                *ngFor="let registroRelacionado of registros ;trackBy: trackId" [hidden]="registroRelacionado.id == registro.id">
+                                <td>
+                                    <span class="custom-table-title">{{registroRelacionado.titulo}} </span><br>
+                                    <span class="custom-table-text-area" *ngIf="registroRelacionado.secaoId">
+                                        <a [routerLink]="['../secao', registroRelacionado.secaoId , 'view' ]">{{registroRelacionado.secaoNome}}</a>
+                                    </span><br/>
+                                    <div class="custom-table-text-area" [innerHTML]="registroRelacionado.texto"></div>
+                                    <br>
+
+                                    <dl class="row-md jh-entity-details">
+                                        <dt><span>Rótulos:</span></dt>
+                                        <dd>
+                                            <div class="list-rotulos">
+                                                <span class="rotulo-badge" *ngFor="let rotuloRelacionado of registroRelacionado.rotulos; trackBy: trackId">{{rotuloRelacionado.rotulo}}</span>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            <hr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
