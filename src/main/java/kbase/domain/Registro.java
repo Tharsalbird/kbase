@@ -36,6 +36,9 @@ public class Registro implements Serializable {
     @Column(name = "texto", nullable = false)
     private String texto;
 
+    @Column(name = "publico")
+    private Boolean publico = true;
+
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties("")
@@ -81,6 +84,14 @@ public class Registro implements Serializable {
 
     public void setTexto(String texto) {
         this.texto = texto;
+    }
+
+    public Boolean getPublico() {
+        return publico;
+    }
+
+    public void setPublico(Boolean publico) {
+        this.publico = publico;
     }
 
     public Secao getSecao() {

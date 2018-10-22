@@ -22,6 +22,8 @@ public class RegistroDTO implements Serializable {
     @Lob
     private String texto;
 
+    private Boolean publico;
+
     private Long secaoId;
 
     private String secaoNome;
@@ -50,6 +52,14 @@ public class RegistroDTO implements Serializable {
 
     public void setTexto(String texto) {
         this.texto = texto;
+    }
+
+    public Boolean getPublico() {
+        return publico;
+    }
+
+    public void setPublico(Boolean publico) {
+        this.publico = publico;
     }
 
     public Long getSecaoId() {

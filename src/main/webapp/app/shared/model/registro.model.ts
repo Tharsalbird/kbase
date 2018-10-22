@@ -6,6 +6,7 @@ export interface IRegistro {
     texto?: any;
     secaoNome?: string;
     secaoId?: number;
+    publico?: boolean;
     rotulos?: IRotulo[];
 }
 
@@ -16,6 +17,7 @@ export class Registro implements IRegistro {
         public texto?: any,
         public secaoNome?: string,
         public secaoId?: number,
+        public publico?: boolean,
         public rotulos?: IRotulo[]
     ) {}
 }

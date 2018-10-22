@@ -43,7 +43,8 @@ import {
     faTrashAlt,
     faUser,
     faUserPlus,
-    faWrench
+    faWrench,
+    faUsers
 } from '@fortawesome/free-solid-svg-icons';
 
 // Imports all fontawesome core and solid icons
@@ -90,5 +91,6 @@ library.add(faCalendar);
 library.add(faExclamationTriangle);
 library.add(faFileAlt);
 library.add(faFile);
+library.add(faUsers);
 
 // jhipster-needle-add-element-to-vendor - JHipster will add new menu items here
