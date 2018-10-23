@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit {
     dateFim: NgbDateStruct;
     tipo: String;
     secao: String;
+    erro: String;
     constructor(
         private loginService: LoginService,
         private principal: Principal,

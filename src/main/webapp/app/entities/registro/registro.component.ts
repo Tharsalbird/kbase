@@ -95,9 +95,9 @@ export class RegistroComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.loadAll();
-        this.principal.identity().then(account => {
-            this.currentAccount = account;
-        });
+        // this.principal.identity().then(account => {
+        //     this.currentAccount = account;
+        // });
         this.registerChangeInRegistros();
     }
 

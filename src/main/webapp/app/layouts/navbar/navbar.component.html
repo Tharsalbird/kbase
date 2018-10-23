@@ -19,7 +19,7 @@
                             <div class="col-md-11">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="username" id="username" placeholder="Realiza sua pesquisa" [(ngModel)]="username" style="border-top-right-radius: 0; border-bottom-right-radius: 0px;">
+                                        <input type="text" class="form-control" name="pesquisa" id="username" placeholder="pesquisar" [(ngModel)]="busca" style="border-top-right-radius: 0; border-bottom-right-radius: 0px;">
                                         <div class="input-group-append">
                                             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                                                 <div ngbDropdown class="d-inline-block">
@@ -28,62 +28,98 @@
                                                     </button>
                                                     <div ngbDropdownMenu style="padding: 15px">
                                                         <h4 class="dropdown-header" style="font-size: 1rem;color: black;">Busca Avançada</h4>
-                                                        <h5 class="dropdown-header">Buscar por período</h5>
-                                                        <div class="row input-group" style="width: 20em">
-                                                            <div class="col-6">
-                                                                <h4 class="dropdown-header header">Inicio</h4>
-                                                                <div class="form-group">
-                                                                    <div class="input-group">
-                                                                        <input class="form-control" placeholder="dd-mm-yyyy" [placeholder]="dd-mm-yyyy"
-                                                                               name="inicio" [(ngModel)]="dateInicio" ngbDatepicker #d="ngbDatepicker">
-                                                                        <div class="input-group-append">
-                                                                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
-                                                                                <fa-icon [icon]="'calendar'" style="color: #000000;"></fa-icon>&nbsp;
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
 
-                                                            <div class="col-6" style="width: 20em">
-                                                                <div class="form-group">
-                                                                    <h4 class="dropdown-header header">Fim</h4>
-                                                                    <div class="input-group">
-                                                                        <input class="form-control" placeholder="dd-mm-yyyy" [placeholder]="dd-mm-yyyy"
-                                                                               name="fim" [(ngModel)]="dateFim" ngbDatepicker #d="ngbDatepicker">
-                                                                        <div class="input-group-append">
-                                                                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
-                                                                                <fa-icon [icon]="'calendar'" style="color: #000000;"></fa-icon>&nbsp;
-                                                                            </button>
+                                                        <!--Oculta até momento em que se defina a necessidade ou não deste filtro-->
+                                                        <div hidden>
+                                                            <h5 class="dropdown-header">Buscar por período</h5>
+                                                            <div class="row input-group" style="width: 20em">
+                                                                <div class="col-6">
+                                                                    <h4 class="dropdown-header header">Inicio</h4>
+                                                                    <div class="form-group">
+                                                                        <div class="input-group">
+                                                                            <input class="form-control" placeholder="dd-mm-yyyy" [placeholder]="dd-mm-yyyy"
+                                                                                   name="inicio" [(ngModel)]="dateInicio" ngbDatepicker #d="ngbDatepicker">
+                                                                            <div class="input-group-append">
+                                                                                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                                                                                    <fa-icon [icon]="'calendar'" style="color: #000000;"></fa-icon>&nbsp;
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <div class="form-group">
+                                                                        <h4 class="dropdown-header header">Fim</h4>
+                                                                        <div class="input-group">
+                                                                            <input class="form-control" placeholder="dd-mm-yyyy" [placeholder]="dd-mm-yyyy"
+                                                                                   name="fim" [(ngModel)]="dateFim" ngbDatepicker #d="ngbDatepicker">
+                                                                            <div class="input-group-append">
+                                                                                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                                                                                    <fa-icon [icon]="'calendar'" style="color: #000000;"></fa-icon>&nbsp;
+                                                                                </button>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h5 class="dropdown-header">Buscar por tipo</h5>
-                                                        <div class="row">
-                                                            <div class="col-md-12" style="width: 20em">
-                                                                <div class="form-group">
-                                                                    <select class="form-control" name="tipo" [(ngModel)]="tipo" id="field_model" required>
-                                                                        <option value="F_A_Q">F.A.Q.</option>
-                                                                        <option value="ERRO">Erro</option>
-                                                                        <option value="ARTIGO">Artigo</option>
-                                                                    </select>
+
+                                                        <div>
+                                                            <h5 class="dropdown-header">Buscar por tipo</h5>
+                                                            <div class="row">
+                                                                <div class="col-md-12" style="width: 20em">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control" name="tipo" [(ngModel)]="tipo" id="field_model">
+                                                                            <option></option>
+                                                                            <option value="F_A_Q">F.A.Q.</option>
+                                                                            <option value="ERRO">Erro</option>
+                                                                            <option value="ARTIGO">Artigo</option>
+                                                                        </select>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h5 class="dropdown-header">Buscar por Secao</h5>
-                                                        <div class="row">
-                                                            <div class="col-md-12" style="width: 20em">
-                                                                <div class="form-group">
-                                                                    <select class="form-control" name="secao" [(ngModel)]="secao" id="field_mode2" required>
-                                                                        <option value="{{tipo + ' 1 '}}">{{tipo + " 1 "}}</option>
-                                                                        <option value="{{tipo + ' 2 '}}">{{tipo + " 2 "}}</option>
-                                                                        <option value="{{tipo + ' 3 '}}">{{tipo + " 3 "}}</option>
-                                                                    </select>
+
+                                                        <div [attr.disabled]="!tipo" [hidden]="!tipo">
+                                                            <h5 class="dropdown-header">Buscar por Secao</h5>
+                                                            <div class="row">
+                                                                <div class="col-md-12" style="width: 20em">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control" name="secao" [(ngModel)]="secao" id="field_mode2">
+                                                                            <option></option>
+                                                                            <option value="{{tipo + ' 1 '}}">{{tipo + " 1 "}}</option>
+                                                                            <option value="{{tipo + ' 2 '}}">{{tipo + " 2 "}}</option>
+                                                                            <option value="{{tipo + ' 3 '}}">{{tipo + " 3 "}}</option>
+                                                                        </select>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                        <div [hidden]="!(tipo == 'ERRO')">
+                                                            <h5 class="dropdown-header">Buscar por Erro</h5>
+                                                            <div class="row">
+                                                                <div class="col-md-12" style="width: 20em">
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" name="username" id="erro" placeholder="Buscar por erro..." [(ngModel)]="erro"
+                                                                               style="border-top-right-radius: 0; border-bottom-right-radius: 0px;">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div>
+                                                            <h5 class="dropdown-header">Buscar por Rótulos</h5>
+                                                            <div class="row">
+                                                                <div class="col-md-12" style="width: 20em">
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" name="username" id="tags" placeholder="rotulo 1; rotulo2; rotulo3 ..." [(ngModel)]="erro"
+                                                                               style="border-top-right-radius: 0; border-bottom-right-radius: 0px;">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                                 <button class="btn btn-primary" style="background-color: #FFFFFF !important; border-color: #FFFFFF">

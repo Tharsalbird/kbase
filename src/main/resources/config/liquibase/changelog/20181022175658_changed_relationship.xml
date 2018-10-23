@@ -1,0 +1,26 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="gonza (generated)" id="1540231050485-1">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="gonza (generated)" id="1540231050485-2">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m" deferrable="false" initiallyDeferred="false" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event"/>
+    </changeSet>
+    <changeSet author="gonza (generated)" id="1540231050485-3">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="gonza (generated)" id="1540231050485-4">
+        <addForeignKeyConstraint baseColumnNames="secao_id" baseTableName="registro" constraintName="FKbf2h2fs2nvdv9bolnwwtc42u0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="secao"/>
+    </changeSet>
+    <changeSet author="gonza (generated)" id="1540231050485-5">
+        <addForeignKeyConstraint baseColumnNames="rotulos_id" baseTableName="registro_rotulo" constraintName="FKiroc7uib1ox6v4vcde40ec5e2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="rotulo"/>
+    </changeSet>
+    <changeSet author="gonza (generated)" id="1540231050485-6">
+        <addForeignKeyConstraint baseColumnNames="registros_id" baseTableName="registro_rotulo" constraintName="FKn4l8g7grj6h3go6577vx6gsu6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="registro"/>
+    </changeSet>
+    <changeSet author="gonza (generated)" id="1540231050485-7">
+        <addColumn tableName="registro">
+            <column name="publico" type="bit"></column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

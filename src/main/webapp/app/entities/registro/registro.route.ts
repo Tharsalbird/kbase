@@ -34,7 +34,7 @@ export const registroRoute: Routes = [
             pagingParams: JhiResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            // authorities: ['ROLE_USER'],
             defaultSort: 'id,asc',
             pageTitle: 'Registros'
         },
@@ -47,7 +47,7 @@ export const registroRoute: Routes = [
             registro: RegistroResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            // authorities: ['ROLE_USER'],
             pageTitle: 'Registros'
         },
         canActivate: [UserRouteAccessService]

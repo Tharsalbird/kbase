@@ -8,17 +8,28 @@
     <jhi-alert></jhi-alert>
     <br/>
     <div class="row">
-        <div class="col-md-12">
-            <span class="bread-crumb"><span class="bold">Data Inicial:</span> 01/10/201 - </span>
-            <span class="bread-crumb"><span class="bold">Data Final:</span> 18/10/2018</span>
+        <div class="col-6">
+            <div class="col-12">
+                <span class="bread-crumb"><span class="bold">Data Inicial:</span> 01/10/201 - </span>
+                <span class="bread-crumb"><span class="bold">Data Final:</span> 18/10/2018</span>
+            </div>
+            <div class="col-12">
+                <span class="bread-crumb"><span class="bold">Modelo:</span> Todos - </span>
+                <span class="bread-crumb"><span class="bold">Seção:</span> Todos</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div>
+                <div><span class="bold">Rótulos:</span></div>
+                <div class="list-rotulos">
+                    <span class="rotulo-badge">Java</span>
+                    <span class="rotulo-badge">ERRO</span>
+                    <span class="rotulo-badge">PHP</span>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <span class="bread-crumb"><span class="bold">Modelo:</span> Todos - </span>
-            <span class="bread-crumb"><span class="bold">Seção:</span> Todos</span>
-        </div>
-    </div>
+    <hr>
     <div class="table-responsive" *ngIf="registros">
         <table class="table table-striped">
             <tbody>
@@ -39,8 +50,13 @@
                                 </button>
                             </div>
 
+
                             <div [routerLink]="['../registro', registro.id , 'view' ]" class="custom-table-title">
-                                {{registro.titulo}}
+                                <span>{{registro.titulo}}</span>
+                                <span class="mx-5 float-right">
+                                    <span [hidden]="!(registro && registro.publico)" class="info small"><fa-icon [icon]="'users'"></fa-icon></span>
+                                    <span class="small"><span class="bold">Código: </span>{{registro.id}}</span>
+                                </span>
                             </div>
                         </div>
 

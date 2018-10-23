@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-4 text-right">
                     <h5>
-                        <span class="info small"><fa-icon [icon]="'users'"></fa-icon></span>
+                        <span [hidden]="!registro.publico" class="info small"><fa-icon [icon]="'users'"></fa-icon></span>
                         <span class="small"><span class="bold">Código: </span>{{registro.id}}</span>
                     </h5>
                 </div>
@@ -64,7 +64,19 @@
                             <tbody>
                             <tr *ngFor="let registroRelacionado of registros ;trackBy: trackId" [hidden]="registroRelacionado.id == registro.id">
                                 <td>
-                                    <span class="custom-table-title">{{registroRelacionado.titulo}}</span><br>
+                                    <div>
+                                        <div class="col-4 float-right">
+                                            <span>
+                                                    <span [hidden]="!registroRelacionado.publico" class="info small"><fa-icon [icon]="'users'"></fa-icon></span>
+                                                    <span class="small"><span class="bold">Código: </span>{{registroRelacionado.id}}</span>
+                                            </span>
+                                            <button type="submit" [routerLink]="['/registro', registro.id, 'view' ]" class="btn btn-info btn-sm float-right">
+                                                <fa-icon [icon]="'eye'"></fa-icon>
+                                            </button>
+                                        </div>
+                                        <span class="custom-table-title">{{registroRelacionado.titulo}}</span><br>
+                                    </div>
+
                                     <span class="custom-table-text-area" *ngIf="registroRelacionado.secaoId">
                                         <a [routerLink]="['../secao', registroRelacionado.secaoId , 'view' ]">{{registroRelacionado.secaoNome}}</a>
                                     </span><br/>
@@ -118,10 +130,21 @@
                     <div class="table-responsive" *ngIf="registros">
                         <table class="table table-striped">
                             <tbody>
-                            <tr
-                                *ngFor="let registroRelacionado of registros ;trackBy: trackId" [hidden]="registroRelacionado.id == registro.id">
+                            <tr *ngFor="let registroRelacionado of registros ;trackBy: trackId" [hidden]="registroRelacionado.id == registro.id">
                                 <td>
-                                    <span class="custom-table-title">{{registroRelacionado.titulo}} </span><br>
+                                    <div>
+                                        <div class="col-4 float-right">
+                                            <span>
+                                                    <span [hidden]="!registroRelacionado.publico" class="info small"><fa-icon [icon]="'users'"></fa-icon></span>
+                                                    <span class="small"><span class="bold">Código: </span>{{registroRelacionado.id}}</span>
+                                            </span>
+                                            <button type="submit" [routerLink]="['/registro', registro.id, 'view' ]" class="btn btn-info btn-sm float-right">
+                                                <fa-icon [icon]="'eye'"></fa-icon>
+                                            </button>
+                                        </div>
+                                        <span class="custom-table-title">{{registroRelacionado.titulo}}</span><br>
+                                    </div>
+
                                     <span class="custom-table-text-area" *ngIf="registroRelacionado.secaoId">
                                         <a [routerLink]="['../secao', registroRelacionado.secaoId , 'view' ]">{{registroRelacionado.secaoNome}}</a>
                                     </span><br/>
